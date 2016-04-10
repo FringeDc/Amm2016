@@ -17,12 +17,12 @@ body
 
 @font-face {
    font-family: 'Super Mario 256';
-   src: url('SuperMario256.ttf') format('truetype');;
+   src: url('object/SuperMario256.ttf') format('truetype');;
 }
 
 @font-face {
    font-family: 'Tw Cen MT';
-   src: url('Tw Cen MT.ttf') format('truetype');;
+   src: url('object/Tw Cen MT.ttf') format('truetype');;
 }
 
 p, input, table, label, textarea
