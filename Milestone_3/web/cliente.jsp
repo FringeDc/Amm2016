@@ -1,0 +1,151 @@
+<%-- 
+    Document   : cliente
+    Created on : 3-mag-2016, 17.51.47
+    Author     : Luca
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cliente</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="keywords" content="HTML, CSS, PHP, MySQL, AMM">
+        <meta name="description" content="Milestone1">
+        <meta name="author" content="Luca Stochino">
+        <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    </head>
+    
+    <body id="page">
+
+        <header>
+            <!--  header -->
+            <div id="header">
+
+                <div id="logo">
+                    <img src= "drawable/logo.png"
+                        alt = "Super Mario Bros."
+                        id="logo_titolo"
+                        title = "logo"
+                        width = "291" height= "140">
+                    <!--<h1>Pusher Mario Bros.</h1>-->
+                </div>
+                
+                <div id="menu">
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="descrizione.html">Descrizione</a></li>
+                        <li class="current_page_item"><a href="#">Cliente</a></li>
+                        <li><a href="venditore.html">Venditore</a></li>
+                    </ul>
+                </div> 
+            </div>
+
+        </header>
+        
+        <div id="sidebar1">
+            <h2 class="icon-title">Navigazione</h2>
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="descrizione.html">Descrizione</a></li>
+                <li><a href="venditore.html">Cliente</a></li>
+            </ul>
+        </div>
+
+        <div id="sidebar2">
+            <h2 class="icon-title">Link esterni</h2>
+            <ul>
+                <li><a href="https://www.nintendo.it/">Nintendo</a></li>
+                <li><a href="http://mario.nintendo.com/">Super Mario</a></li>
+                <li><a href="http://nonciclopedia.wikia.com/wiki/Padre_Maronno_–_L'uomo_a_cui_appiopparono_la_santità">Padre Maronno</a></li>
+                <li><a href="http://www.chiquita.it/">Chiquita</a></li>
+            </ul>
+        </div>
+        
+        <div id="body">
+                    
+        <h1>Oggetti in vendita</h1>
+
+            <table>           
+                <tr>
+                    <th>Nome dell'oggetto</th>
+                    <th>Foto descrittiva</th>
+                    <th>Pezzi disponibili</th>
+                    <th>Prezzo</th>
+                    <th>Link</th>
+                </tr>
+                <tr>
+                    <td>Fungo</td>
+                    <td><img src="objects/fungo1.png"
+                 alt ='fungo normale'
+                 title = "fungo1"
+                 width = "50" height= "50" >
+                </td>
+                    <td>3 pz.</td>
+                    <td>9.99 €</td>
+                    <td> <a href='cliente.html'> Link all'articolo </a></td>
+                </tr>
+                <tr>
+                    <td>Fungo Gigante</td>
+                    <td><img src="objects/fungo2.png"
+                 alt ='fungo gigante'
+                 title = "fungo2"
+                 width = "50" height= "50" >
+                </td>
+                    <td>1 pz.</td>
+                    <td>8.99 €</td>
+                    <td> <a href='cliente.html'> Link all'articolo </a></td>
+                </tr>
+                <tr>
+                    <td>Fungo Coin</td>
+                    <td><img src="objects/fungo3.png"
+                 alt ='fungo coin'
+                 title = "fungo3"
+                 width = "50" height= "50" >
+                </td>
+                    <td>3 pz.</td>
+                    <td>11.99 €</td>
+                    <td> <a href='cliente.html'> Link all'articolo </a></td>
+                </tr>
+                <tr>
+                    <td>Fungo 1UP</td>
+                    <td><img src="objects/fungo4.png"
+                 alt ='fungo unoap'
+                 title = "fungo4"
+                 width = "50" height= "50" >
+                </td>
+                    <td>10 pz.</td>
+                    <td>9.99 €</td>
+                    <td> <a href='cliente.html'> Link all'articolo </a></td>
+                </tr>
+                <tr>
+                    <td>Fungo Ape</td>
+                    <td><img src="objects/fungo5.png"
+                 alt ='fungo ape'
+                 title = "fungo5"
+                 width = "50" height= "50" >
+                </td>
+                    <td>5 pz.</td>
+                    <td>19.99 €</td>
+                    <td> <a href='cliente.html'> Link all'articolo </a></td>
+                </tr>
+            </table>            
+        </div>
+        
+        <br><br>
+        
+        <footer>
+                <div id="foot" class="foot">
+                <ul>
+                    <li id="nintendo"><a href="https://www.nintendo.it/">nintendo</a></li>
+                    <li id="superMario"><a href="http://mario.nintendo.com/">mario</a></li>
+                    <li id="maronno"><a href="http://nonciclopedia.wikia.com/wiki/Padre_Maronno_–_L'uomo_a_cui_appiopparono_la_santità">maronno</a></li>
+                    <li id="chiquita"><a href="http://www.chiquita.it/">chiquita</a></li>
+                </ul>
+            </div>
+        </footer>
+        
+    </body>
+</html>
