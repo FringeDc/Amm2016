@@ -9,15 +9,14 @@ package milestone3.classi;
  *
  * @author Luca
  */
-public class Cliente extends Utente
+public class Cliente
 {
     private Saldo soldi;
     private int acquistati; 
+    private String password;
+    private String nickname;
     
-    public Cliente()
-    {
-        super();
-    };
+    public Cliente() {}
 
     /**
      * @return the soldi
@@ -45,5 +44,33 @@ public class Cliente extends Utente
      */
     public void setAcquistati(int acquistati) {
         this.acquistati = acquistati;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return the nickname
+     */
+    public String getNickname() {
+        return nickname;
+    }
+
+    /**
+     * @param nickname the nickname to set
+     */
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

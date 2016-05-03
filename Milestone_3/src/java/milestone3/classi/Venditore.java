@@ -5,39 +5,17 @@
  */
 package milestone3.classi;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Luca
  */
-public class Venditore extends Utente
+public class Venditore
 {
-    private ArrayList<Articolo> prodotti;
     private int venduti;
+    private String nickname;
+    private String password;
     
-    public Venditore()
-    {
-        super();
-    }
-    
-    /**
-     * @return the prodotti
-     */
-    public ArrayList<Articolo> getProdotti() {
-        return prodotti;
-    }
-
-    /**
-     * @param prodotti the prodotti to set
-     */
-    public void setProdotti() {
-        for(Articolo a : ArticoloFactory.getInstance().getListaArticoli())
-        {
-            if(a.getVenditore().equals(this.getNickname()))
-                this.prodotti.add(a);
-        }
-    }
+    public Venditore(){}
 
     /**
      * @return the venduti
@@ -51,5 +29,33 @@ public class Venditore extends Utente
      */
     public void setVenduti(int venduti) {
         this.venduti = venduti;
+    }
+
+    /**
+     * @return the nickname
+     */
+    public String getNickname() {
+        return nickname;
+    }
+
+    /**
+     * @param nickname the nickname to set
+     */
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

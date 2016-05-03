@@ -44,17 +44,30 @@ public class Login extends HttpServlet {
             String username = request.getParameter("Username");
             String password = request.getParameter("Password");
             
-            ArrayList<Utente> listaUtenti = UtenteFactory.getInstance().getListaUtenti();
+            ArrayList<Cliente> listaClienti = ClienteFactory.getInstance().getListaClienti();
             
-            for(Utente u : UtenteFactory.getInstance().getListaUtenti())
+            for(Cliente c : listaClienti)
             {
-                if(u.getNickname().equals(username) &&
-                   u.getPassword().equals(password))
+                if(c.getNickname().equals(username) &&
+                   c.getPassword().equals(password))
                 {
                     session.setAttribute("loggedIn", true);
                     request.getRequestDispatcher("cliente.jsp").forward(request, response);                 
                 }
             }
+            
+            ArrayList<Venditore> listaVenditori = VenditoreFactory.getInstance().getListaVenditori();
+            
+            for(Venditore v : listaVenditori)
+            {
+                if(v.getNickname().equals(username) &&
+                   v.getPassword().equals(password))
+                {
+                    session.setAttribute("loggedIn", true);
+                    request.getRequestDispatcher("venditore.jsp").forward(request, response);              
+                }
+            }
+            
         }
         
     }
