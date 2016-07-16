@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <header>
     
+    <c:set var="loggedIn" scope="session" value="false"/> 
+    
     <div id="header">
         
         <img src= "drawable/headimg.png"
@@ -20,20 +22,29 @@
             alt = "Super Mario Bros."
             id="logo_titolo"
             title = "logo"
-            width = "291" height= "140"> 
+            width = "291" height= "140">
         
-        <form id="headerloginform" method="post" action="Login">
+        <p>${loggedIn}</p>
+        
+        <c:if test="${loggedIn}">
 
-            <label for="Username">Username</label>
-            <input type="text" name ="Username" id="Username" /> <br>
+            <form id="headloginform" method="post" action="Login">
+                <p>
+                <label for="Username">Username</label>
+                <input type="text" name ="Username" id="Username" />
+                </p>
 
-            <label for="Password">Password</label>
-            <input type="password" name ="Password" id="Password" /> <br> 
+                <p>
+                <label for="Password">Password</label>
+                <input type="password" name ="Password" id="Password" />
+                </p>
 
-            <input class="cl2" type="submit" value="Log in" name="Submit">
-            <input class="cl2" type="reset" value="Cancella">
-        </form>
-
+                <input class="cl1" type="submit" value="Invia" name="Submit">
+                <input class="cl1" type="reset" value="Cancella">
+            </form>
+            
+        </c:if>
+        
     </div>
     
 

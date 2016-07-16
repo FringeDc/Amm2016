@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div id="sidebar">
+    
     <h2 class="icon-title">Navigazione</h2>
     <ul>
         <li><a href="descrizione.jsp" name="d">Descrizione</a></li>

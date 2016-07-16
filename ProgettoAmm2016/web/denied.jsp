@@ -25,14 +25,14 @@ and open the template in the editor.
     </head>
     
     <body>
-        <div id="white">
+        <div id="body2">
             
             <jsp:include page="partiComuni/header.jsp" />
             <jsp:include page="partiComuni/sidebar.jsp" />
 
             <div id="denied">
                 
-                </br>
+                </br></br></br>
                 
                 <img src= "drawable/busted.gif"
                         alt = "Busted"

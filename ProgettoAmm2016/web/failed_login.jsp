@@ -19,7 +19,7 @@
     </head>
     
     <body>
-        <div id="white">
+        <div id="body2">
         
             <jsp:include page="partiComuni/header.jsp" />
 

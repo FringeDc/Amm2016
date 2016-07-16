@@ -25,18 +25,16 @@ and open the template in the editor.
     </head>
     
     <body>
-        <div id="white">
+        <div id="body2">
         
             <jsp:include page="partiComuni/header.jsp" />
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
             <div id="menu">
                 <ul>
                     <li><a href="Login">Login</a></li>
                 </ul>
             </div> 
-
-
+            
             <jsp:include page="partiComuni/sidebar.jsp" />
 
             <div id="corpo">

@@ -37,12 +37,12 @@ public class Login extends HttpServlet {
             }
         } catch (NullPointerException e) {}
         
-        if(request.getParameter("Submit") != null)
-        {
-            session.setAttribute("venditoreLoggedIn", false);
-            session.setAttribute("clienteLoggedIn", false);
-            session.setAttribute("loggedIn", false);
+        session.setAttribute("venditoreLoggedIn", false);
+        session.setAttribute("clienteLoggedIn", false);
+        session.setAttribute("loggedIn", false);
         
+        if(request.getParameter("Submit") != null)
+        {        
             // Preleva i dati inviati
             String username = request.getParameter("Username");
             String password = request.getParameter("Password");

@@ -20,8 +20,9 @@ body
     background-image: url("../drawable/background.gif");
     background-repeat: repeat;
     align-items: center;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0px;
+    margin-top: 5px;
+    
 }
 
 p, input, table, label, textarea
@@ -115,7 +116,7 @@ th
 
 form.label
 {
-    width: 5px;
+    width: 100px;
 }
 
 #Nome, #Url, #Descrizione, #Prezzo, #Pezzo
@@ -123,11 +124,11 @@ form.label
     width: 180px;
 }
 
-#corpo.form  
+form  
 { 
     display: table;  
     margin-right: 5%;
-    padding: 25px;
+    padding: 10px;
     background: rgba(128, 64, 0, .3);
     border-radius: 7px;
     border-style: solid;
@@ -136,17 +137,34 @@ form.label
 
 #loginform p    
 { 
-    display: table-row;  
+    display: table-row;
 }
 
-#headerloginform
+#headloginform
+{    
+    float: right;
+    width: 160px;
+    padding-bottom: 0px;
+    height: 130px;
+    margin: 5px;
+    
+    background: rgba(247, 255, 197, .35);
+    border: none;
+}
+
+#headloginform p
 {
-    width: 80px;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
-#headerloginform label    
-{ 
-    display: table-row;  
+#headloginform .cl1
+{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+    height: 22px;
+    width: 70px;
 }
 
 label 
@@ -182,19 +200,6 @@ input.cl1
     box-shadow: 2px 2px 2px #C0C0C0;
 }
 
-input.cl2
-{
-    color: #FFFFFF;
-    border-radius: 2px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #FFFFFF;
-    background-color: #960000; 
-    width: 85px;
-    height: 20px;
-    box-shadow: 2px 2px 2px #C0C0C0;
-}
-
 #extlinks ul
 {
     list-style-type: none;
@@ -208,8 +213,7 @@ input.cl2
 
 #logo_titolo
 {
-    padding: 5px;
-    margin-left: 10%
+    position: absolute;
 }
 
 #loginform
@@ -221,19 +225,10 @@ input.cl2
 #menu ul li a
 {
    font-family: 'Super Mario 256', Verdana, sans-serif;
-   font-size: 25px;
+   font-size: 26px;
    color: #FFA600;
-   text-shadow: 2px 2px 2px #C0C0C0;
    -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: #993D00;
-}
-
-#menu ul li.current_page_item a
-{
-    color: #AD5700;
-    text-shadow: 2px 2px 2px #C0C0C0;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #331400;
 }
 
 #denied
@@ -242,43 +237,55 @@ input.cl2
     text-align: center;
     height: 400px;
 }
-
+    
 #header
 {
     height: 150px;
-    background: rgba(160, 0, 0, .5);
+    background: rgba(160, 0, 0, .65);
     margin-left: 5%;
     margin-right: 5%;
     border-radius: 7px;
     border-width: 3px;
     border-style: solid;
     border-color: #960000;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 #menu
 {
-    margin-top: 20px;
+    margin-top: -3px;
+    margin-left: 7%;
+    margin-right: 7%;
     margin-bottom: 30px;
+    
+    padding-top: 3px;
+    
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;    
+    border-width: 3px;
+    border-style: solid;
+    border-color: #960000; 
+    
+    background-image: url("../drawable/menu.png");
+    background-position: bottom left;
+    background-repeat: repeat-x;  
 }
 
 #menu ul
 {
+    padding: 0;
     display: table; 
     list-style-type: none;
     text-align: center;
     width: 100%;
-    height: 60px;
+    height: 20px;
 }
 
 #menu ul li
 { 
     display: inline;
-    display: table-cell; 
-    background-image: url("../drawable/clickable.png");
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    width: 20%;
+    display: table-cell;
+    width: 25%;
 }
 
 #sidebar
@@ -286,7 +293,7 @@ input.cl2
     float: left;
     width: 150px;
     padding-left: 7%;
-    padding-right: 20px;
+    padding-right: 10px;
     list-style-type: none; 
 }
 
@@ -294,6 +301,7 @@ input.cl2
 {
     margin-left: 25%;
     margin-right: 10%;
+    margin-top: 45px;
 }
 
 #denied h1
@@ -305,17 +313,19 @@ input.cl2
 
 #foot
 {
-    height: 100px;
-    text-align: center;    
-    background: rgba(0, 0, 0, .5);
+    height: 100px;    
     align-content: center;
     margin-left: 5%;
     margin-right: 5%;
     border-radius: 7px;
     border-width: 3px;
     border-style: solid;
-    border-color: #960000;
+    border-color: black;
     vertical-align: middle;
+    
+    background-image: url("../drawable/footer.png");
+    background-position: top left;
+    background-repeat: repeat;
 }
 
 .foot ul
@@ -326,10 +336,10 @@ input.cl2
 
 .foot ul li
 {
-
+    margin-left:5%;
     display: inline-block;
-    width: 200px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     overflow: hidden;
     vertical-align: middle;
 }
@@ -339,30 +349,16 @@ input.cl2
     color: transparent;
 }
 
-#nintendo
+.timbro 
 {
-    background-image: url("../drawable/nintendo.png");
-    background-position: center;
-    background-repeat: no-repeat;
+    -webkit-filter: drop-shadow(3px 3px 1px #222);
+    filter: drop-shadow(3px 3px 1px #222);
 }
 
-#superMario
-{
-    background-image: url("../drawable/mario.png");
-    background-position: center;
+#body2
+{    
+    background-image: url("../drawable/footimg.png");
     background-repeat: no-repeat;
-}
-
-#maronno
-{
-    background-image: url("../drawable/maronno.png");
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#chiquita
-{
-    background-image: url("../drawable/chiquita.png");
-    background-position: center;
-    background-repeat: no-repeat;
+    background-position: bottom right;
+    padding: 5px;
 }
