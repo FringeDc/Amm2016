@@ -31,6 +31,9 @@ and open the template in the editor.
 
             <div id="menu">
                 <ul>
+                    <li><p class="current">Home</p></li>
+                    <li><p>Cliente</p></li>
+                    <li><p>Venditore</p></li>
                     <li><a href="Login">Login</a></li>
                 </ul>
             </div> 

@@ -7,14 +7,20 @@
         </session-timeout>
     </session-config>
     
+    <!-- Servlet di Cliente -->
+    <servlet-mapping>
+        <servlet-name>ClienteServlet</servlet-name>
+        <url-pattern>/ClienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ClienteServlet</servlet-name>
+        <servlet-class>progetto.servlet.ClienteServlet</servlet-class>
+    </servlet>
+    
+    <!-- Servlet di Login -->
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>progetto.servlet.Login</servlet-class>
-    </servlet>
-    
-    <servlet>
-        <servlet-name>VenditoreServlet</servlet-name>
-        <servlet-class>progetto.servlet.VenditoreServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -22,12 +28,28 @@
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     
+    <!-- Servlet di Venditore -->
+    <servlet>
+        <servlet-name>VenditoreServlet</servlet-name>
+        <servlet-class>progetto.servlet.VenditoreServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VenditoreServlet</servlet-name>
         <url-pattern>/VenditoreServlet</url-pattern>
     </servlet-mapping>
     
+    <!-- Servlet di Home -->
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>progetto.servlet.Home</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Pagina di partenza: servlet Home -->
     <welcome-file-list>
-        <welcome-file>descrizione.jsp</welcome-file>
+        <welcome-file>Home</welcome-file>
     </welcome-file-list>
 </web-app>

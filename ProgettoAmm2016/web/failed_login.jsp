@@ -25,42 +25,41 @@
 
             <div id="menu">
                 <ul>
-                    <li><a href="descrizione.jsp">Descrizione</a></li>
-                    <li><a href="cliente.jsp">Cliente</a></li>
+                    <li><a href="descrizione.jsp">Home</a></li>
+                    <li><a href="ClienteServlet">Cliente</a></li>
                     <li><a href="VenditoreServlet">Venditore</a></li>
+                    <li><p class="current">Login</p></li>
                 </ul>
             </div> 
 
 
             <jsp:include page="partiComuni/sidebar.jsp" />
 
-            <div id="corpo">
-
-                <p> Username e/o password errati. Riprova. </p>
+            <div id="failedlog">
 
                 <h1>Accedi</h1>
+                
+                <p>Username e/o password errati. Riprova.</p>
 
-                <form id="loginform" method="post" action="Login">
+                <form method="post" action="Login">
+                    
+                    <div id="loginform">
                     <p>
-
                     <label for="Username">Username</label>
                     <input type="text" name ="Username" id="Username" /> <br> <br>
-
                     </p>
+                    
                     <p>
-
                     <label for="Password">Password</label>
                     <input type="password" name ="Password" id="Password" /> <br> <br>
-
                     </p>
 
-                    <br>
-
+                    </div>
+                    
                     <input class="cl1" type="submit" value="Invia" name="Submit">
-                    <input class="cl1" type="reset" value="Cancella">  
+                    <input class="cl1" type="reset" value="Cancella">
+                    
                 </form>
-
-                <br><br>
 
             </div>
 

@@ -25,8 +25,10 @@
 
             <div id="menu">
                 <ul>
+                    <li><a href="descrizione.jsp">Home</a></li>
+                    <li><p class="current">Cliente</p></li>
+                    <li><p>Venditore</p></li>
                     <li><a href="Login">Login</a></li>
-                    <li><a href="descrizione.jsp">Descrizione</a></li>
                 </ul>
             </div> 
 

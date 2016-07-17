@@ -4,6 +4,7 @@
     Author     : Luca
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -28,6 +29,16 @@ and open the template in the editor.
         <div id="body2">
             
             <jsp:include page="partiComuni/header.jsp" />
+            
+            <div id="menu">
+                <ul>
+                    <li><a href="descrizione.jsp">Home</a></li>
+                    <li><p>Cliente</p></li>
+                    <li><p>Venditore</p></li>
+                    <li><a href="Login">Login</a></li>
+                </ul>
+            </div> 
+            
             <jsp:include page="partiComuni/sidebar.jsp" />
 
             <div id="denied">
@@ -41,13 +52,39 @@ and open the template in the editor.
                         width = "52" height= "58">
                 
                 </br>
-              
+                    
                 <h1> Accesso negato </h1>
-                
-                <p> Non puoi accedere a quest'area! </p>
-                
-                <p> Torna indietro </p>
+              
+                <c:choose>
+                    <c:when test="${!loggedIn}">
+                        <p>Gli utenti non loggati</p>
+                    </c:when>
 
+                    <c:otherwise>
+                        <c:if test="${clienteLoggedIn}">
+                            <p>I clienti<p>
+                        </c:if>
+                                
+                        <c:if test="${venditoreLoggedIn}">
+                            <p>I venditori<p>
+                        </c:if> 
+                        
+                    </c:otherwise>
+                </c:choose>
+                                
+                <h3>NON POSSONO ACCEDERE</h3>
+                
+                <p>a quest'area!</p>
+                
+                </br>
+
+                <p> Torna indietro </p>
+                
+                </br>
+                </br>
+                </br>
+                </br>
+                
             </div>
 
             <jsp:include page="partiComuni/footer.jsp" />

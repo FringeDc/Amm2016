@@ -8,22 +8,16 @@ package progetto.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import progetto.classi.Cliente;
-import progetto.classi.ClienteFactory;
-import progetto.classi.Venditore;
-import progetto.classi.VenditoreFactory;
 
 /**
  *
  * @author Luca
  */
-@WebServlet(name = "VenditoreServlet", urlPatterns = {"/VenditoreServlet"})
-public class VenditoreServlet extends HttpServlet {
+public class ClienteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,34 +33,22 @@ public class VenditoreServlet extends HttpServlet {
     {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(true);
-        
+                  
         if(session.getAttribute("loggedIn").equals(false)
-            || session.getAttribute("venditoreLoggedIn").equals(false))
+                || session.getAttribute("clienteLoggedIn").equals(false))
         {
             request.getRequestDispatcher("denied.jsp").forward(request, response);     
             return;
         }
         else
         {
-            if(session.getAttribute("venditoreLoggedIn").equals(true))
+            if(session.getAttribute("clienteLoggedIn").equals(true))
             {
-                request.getRequestDispatcher("venditore.jsp").forward(request, response);
+                request.getRequestDispatcher("cliente.jsp").forward(request, response);
                 return;
-            } 
+            }
         }
-        
-        if(request.getParameter("Vendi") != null)
-        {        
-            // Preleva i dati inviati
-            String nome = request.getParameter("Nome");
-            String url = request.getParameter("Url");
-            String prezzo = request.getParameter("Prezzo");
-            String pezzi = request.getParameter("Pezzi");
-            String descrizione = request.getParameter("Descrizione");
-            
-            request.getRequestDispatcher("venditore_ok.jsp").forward(request, response);
-        }
-        request.getRequestDispatcher("venditore.jsp").forward(request, response);
+        request.getRequestDispatcher("cliente.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
