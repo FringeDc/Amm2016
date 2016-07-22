@@ -14,6 +14,7 @@ public class Articolo
     private String nome;
     private double prezzo;
     private int quantita;
+    private String image;
     private String categoria;
     private int id;
     private String venditore;
@@ -112,5 +113,19 @@ public class Articolo
      */
     public void setVenditore(String venditore) {
         this.venditore = venditore;
+    }
+
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }

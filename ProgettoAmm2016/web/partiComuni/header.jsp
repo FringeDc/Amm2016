@@ -43,7 +43,7 @@
                 
             <c:otherwise>
                 <div id="logout">
-                    <a href="Home" name="logout">logout</a>
+                    <a href="Home" name="logout">log-out</a>
                 </div>
             </c:otherwise>
         </c:choose>

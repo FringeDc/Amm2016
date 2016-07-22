@@ -4,6 +4,7 @@
     Author     : Luca
 --%>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,10 +34,15 @@
             </div> 
 
             <jsp:include page="partiComuni/sidebar.jsp" />
-
+            
             <div id="corpo">
 
-            <h1>Oggetti in vendita</h1>
+                <h1>Oggetti in vendita</h1>
+                
+                
+            <div id="corpo">
+
+                <h1>Oggetti in vendita</h1>
 
                 <table>           
                     <tr>

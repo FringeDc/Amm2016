@@ -11,6 +11,7 @@ package progetto.classi;
  */
 public class Venditore
 {
+    private Saldo soldi;
     private int venduti;
     private String nickname;
     private String password;

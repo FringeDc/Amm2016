@@ -4,6 +4,7 @@
     Author     : Luca
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -32,8 +33,25 @@ and open the template in the editor.
             <div id="menu">
                 <ul>
                     <li><p class="current">Home</p></li>
-                    <li><p>Cliente</p></li>
-                    <li><p>Venditore</p></li>
+                    
+                    <c:choose>
+                        <c:when test="${clienteLoggedIn}">
+                            <li><a href="ClienteServlet">Cliente</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><p>Cliente</p></li>                        
+                        </c:otherwise>
+                    </c:choose>
+                    
+                    <c:choose>
+                        <c:when test="${venditoreLoggedIn}">
+                            <li><a href="VenditoreServlet">Venditore</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><p>Venditore</p></li>                        
+                        </c:otherwise>
+                    </c:choose>
+                    
                     <li><a href="Login">Login</a></li>
                 </ul>
             </div> 
