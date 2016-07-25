@@ -2,26 +2,30 @@ package progetto.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import progetto.classi.ClienteFactory;
+import progetto.classi.VenditoreFactory;
 
 /**
  *
  * @author Luca
  */
 @WebServlet(name = "Home", urlPatterns = {"/Home"})
-public class Home extends HttpServlet {
-
+public class Home extends HttpServlet 
+{    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        response.setContentType("text/html;charset=UTF-8");
+                response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(true);
-        
+                
         session.setAttribute("venditoreLoggedIn", false);
         session.setAttribute("clienteLoggedIn", false);
         session.setAttribute("loggedIn", false);

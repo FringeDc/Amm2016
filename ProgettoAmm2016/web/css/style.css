@@ -33,8 +33,6 @@ p, input, table, label, textarea
    color: #381600;    
 }
 
-
-
 h1
 {
    font-family: 'Super Mario 256', Verdana, sans-serif;
@@ -171,22 +169,42 @@ form
     width: 70px;
 }
 
-#logout
-{    
-    position: inherit;
+#headlogoutform
+{   
+    width: 194px;
+    height: 130px; 
     float: right;
-    width: 100px;
-    margin: 10px;
-    text-align: right;
+    padding-bottom: 0px;
+    padding-top:10px;
+    margin: 5px;
+    background: rgba(247, 255, 197, .35);
+    border: none;
+    border-radius: 7px;
 }
 
-#logout a
+#headlogoutform p
 {
-    font-family: 'Super Mario 256', Verdana, sans-serif;
-    font-size: 24px;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #4D0000;
+    vertical-align: text-top;
+    margin-top: 0px;
+    margin-bottom: 6px;
+    margin-left: 10px;
+}
+
+#headlogoutsubdiv
+{
+    padding: 5px;
+    margin: 5px;
+    margin-top: 0px;
+    float: right;
+}
+
+#headlogoutsubdiv a
+{
+    margin-top: -10px;
+    margin-right: -5px;
+    float: right;
+    font-size: 16px;
+    vertical-align: top;
 }
 
 label 

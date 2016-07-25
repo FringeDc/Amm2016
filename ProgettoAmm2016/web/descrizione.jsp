@@ -29,7 +29,7 @@ and open the template in the editor.
         <div id="body2">
         
             <jsp:include page="partiComuni/header.jsp" />
-
+            
             <div id="menu">
                 <ul>
                     <li><p class="current">Home</p></li>

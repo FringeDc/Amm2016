@@ -11,10 +11,11 @@ package progetto.classi;
  */
 public class Venditore
 {
-    private Saldo soldi;
-    private int venduti;
+    private int id;
     private String nickname;
     private String password;
+    private int venduti;
+    private Saldo soldi = new Saldo();
     
     public Venditore(){}
 
@@ -58,5 +59,33 @@ public class Venditore
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the soldi
+     */
+    public int getSoldi() {
+        return soldi.getSoldi();
+    }
+
+    /**
+     * @param soldi the soldi to set
+     */
+    public void setSoldi(int soldi) {
+        this.soldi.setSoldi(soldi);
     }
 }

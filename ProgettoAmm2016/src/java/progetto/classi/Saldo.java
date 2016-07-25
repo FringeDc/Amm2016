@@ -11,24 +11,21 @@ package progetto.classi;
  */
 public class Saldo 
 {
-    private double soldi;
+    private int soldi;
     
-    public Saldo(double prezzo)
-    {
-        this.soldi = prezzo;
-    }
+    public Saldo() { }
 
     /**
      * @return the soldi
      */
-    public double getSoldi() {
+    public int getSoldi() {
         return soldi;
     }
 
     /**
      * @param soldi the soldi to set
      */
-    public void setSoldi(double soldi) {
+    public void setSoldi(int soldi) {
         this.soldi = soldi;
     }
 }

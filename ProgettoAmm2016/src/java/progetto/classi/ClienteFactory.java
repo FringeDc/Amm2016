@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package progetto.classi;
 
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +10,9 @@ import java.util.ArrayList;
 public class ClienteFactory 
 {
     private static ClienteFactory singleton;
+    protected String connectionString;
+    
+    private ClienteFactory() { }
     
     public static ClienteFactory getInstance() 
     {
@@ -24,45 +23,7 @@ public class ClienteFactory
     }
     
     private ArrayList<Cliente> clientiList = new ArrayList<Cliente>();
-    
-    private ClienteFactory()
-    {
-        Cliente cliente_1 = new Cliente();
-        cliente_1.setNickname("Peach");
-        cliente_1.setPassword("111");
-        cliente_1.setAcquistati(5);
-        cliente_1.setSoldi(new Saldo(102.49));
-        clientiList.add(cliente_1);
-        
-        Cliente cliente_2 = new Cliente();
-        cliente_2.setNickname("Wario");
-        cliente_2.setPassword("222");
-        cliente_2.setAcquistati(4);
-        cliente_2.setSoldi(new Saldo(74.03));
-        clientiList.add(cliente_2);
-        
-        Cliente cliente_3 = new Cliente();
-        cliente_3.setNickname("Bowser");
-        cliente_3.setPassword("333");
-        cliente_3.setAcquistati(3);
-        cliente_3.setSoldi(new Saldo(0.05));
-        clientiList.add(cliente_3);
-        
-        Cliente cliente_4 = new Cliente();
-        cliente_4.setNickname("Luigi");
-        cliente_4.setPassword("444");
-        cliente_4.setAcquistati(15);
-        cliente_4.setSoldi(new Saldo(36.00));
-        clientiList.add(cliente_4);
-        
-        Cliente cliente_5 = new Cliente();
-        cliente_5.setNickname("Toad");
-        cliente_5.setPassword("555");
-        cliente_5.setAcquistati(1);
-        cliente_5.setSoldi(new Saldo(91.89));
-        clientiList.add(cliente_5);       
-    }
-    
+       
     public ArrayList<Cliente> getListaClienti()
     {
         return clientiList;
@@ -70,11 +31,50 @@ public class ClienteFactory
     
     public Cliente getCliente(String nickname, String psw)
     {
-        for(Cliente c : clientiList)
+        try 
         {
-            if(c.getNickname().equals(nickname) && c.getPassword().equals(psw))
-                return c;
-        }
-        return null;
-    }     
+            // path, username, password      
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+            // Query
+            String query = "select * from clienti where nickname = ? and password = ?";;
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Si associano i valori
+            stmt.setString(1, nickname);
+            stmt.setString(2, psw);
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+            
+             // ciclo sulle righe restituite
+            if(res.next()) 
+            {
+                Cliente current = new Cliente();
+                current.setId(res.getInt("id"));
+                current.setNickname(res.getString("nickname"));
+                current.setPassword(res.getString("password"));
+                current.setAcquistati(res.getInt("acquisti"));
+                current.setSoldi(res.getInt("soldi"));
+                
+                stmt.close();
+                conn.close();
+                
+                return current;
+            }   
+            stmt.close();
+            conn.close();
+        } 
+        catch (SQLException e) { }
+        
+        return null;        
+    }
+    
+    public void setConnectionString(String s)
+    {
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString()
+    {
+            return this.connectionString;
+    } 
 }

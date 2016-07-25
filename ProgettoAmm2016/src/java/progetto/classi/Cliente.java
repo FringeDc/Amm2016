@@ -11,25 +11,26 @@ package progetto.classi;
  */
 public class Cliente
 {
-    private Saldo soldi;
-    private int acquistati; 
+    private int id;
     private String password;
     private String nickname;
+    private int acquistati; 
+    private Saldo soldi = new Saldo();
     
     public Cliente() {}
 
     /**
      * @return the soldi
      */
-    public Saldo getSoldi() {
-        return soldi;
+    public int getSoldi() {
+        return soldi.getSoldi();
     }
 
     /**
      * @param soldi the soldi to set
      */
-    public void setSoldi(Saldo soldi) {
-        this.soldi = soldi;
+    public void setSoldi(int soldi) {
+        this.soldi.setSoldi(soldi);
     }
 
     /**
@@ -72,5 +73,19 @@ public class Cliente
      */
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 }

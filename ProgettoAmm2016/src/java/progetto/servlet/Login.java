@@ -2,11 +2,11 @@ package progetto.servlet;
 
 import progetto.classi.VenditoreFactory;
 import progetto.classi.ClienteFactory;
-import progetto.classi.Venditore;
-import progetto.classi.Cliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,15 +14,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "Login", urlPatterns = {"/Login"},  loadOnStartup = 0)
 
+public class Login extends HttpServlet 
+{
+    private static final String JDBC_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
+    private static final String DB_CLEAN_PATH = "../../web/WEB-INF/db/ammdb";
+    private static final String DB_BUILD_PATH = "WEB-INF/db/ammdb";
+    
+    @Override 
+    public void init()
+    {
+        String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/").replace("\\", "/") + DB_BUILD_PATH;
+        try 
+        {
+            Class.forName(JDBC_DRIVER);
+        } catch (ClassNotFoundException ex) 
+        {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        VenditoreFactory.getInstance().setConnectionString(dbConnection);
+        ClienteFactory.getInstance().setConnectionString(dbConnection);
+    }
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException 
     {
-        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(true);
-        
+       
         try
         {           
             if(session.getAttribute("clienteLoggedIn").equals(true))
@@ -42,28 +62,26 @@ public class Login extends HttpServlet {
             // Preleva i dati inviati
             String username = request.getParameter("Username");
             String password = request.getParameter("Password");
-                        
-            for(Cliente c : ClienteFactory.getInstance().getListaClienti())
+            
+            
+            if(VenditoreFactory.getInstance().getVenditore(username, password) != null)
             {
-                if(c.getNickname().equals(username) && c.getPassword().equals(password))
+                session.setAttribute("user", VenditoreFactory.getInstance().getVenditore(username, password));
+                session.setAttribute("loggedIn", true); 
+                session.setAttribute("venditoreLoggedIn", true);
+                request.getRequestDispatcher("venditore.jsp").forward(request, response);
+            }
+            else
+            {
+                if(ClienteFactory.getInstance().getCliente(username, password) != null)
                 {
+                    session.setAttribute("user", ClienteFactory.getInstance().getCliente(username, password));
                     session.setAttribute("loggedIn", true); 
                     session.setAttribute("clienteLoggedIn", true);  
-                    request.getRequestDispatcher("cliente.jsp").forward(request, response);   
-                    return;
+                    request.getRequestDispatcher("cliente.jsp").forward(request, response); 
                 }
             }
-                        
-            for(Venditore v : VenditoreFactory.getInstance().getListaVenditori())
-            {
-                if(v.getNickname().equals(username) && v.getPassword().equals(password))
-                {
-                    session.setAttribute("loggedIn", true); 
-                    session.setAttribute("venditoreLoggedIn", true);
-                    request.getRequestDispatcher("venditore.jsp").forward(request, response); 
-                    return;
-                }
-            }
+            
             request.getRequestDispatcher("failed_login.jsp").forward(request, response);
         }
         request.getRequestDispatcher("login.jsp").forward(request, response);
