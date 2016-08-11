@@ -32,7 +32,6 @@
                 </ul>
             </div> 
 
-
             <jsp:include page="partiComuni/sidebar.jsp" />
 
             <div id="failedlog">

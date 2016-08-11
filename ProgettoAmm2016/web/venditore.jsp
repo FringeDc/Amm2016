@@ -4,6 +4,7 @@
     Author     : Luca
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@
     
     <body>
         <div id="body2">
-        
+            
             <jsp:include page="partiComuni/header.jsp" />
 
             <div id="menu">
@@ -32,43 +33,69 @@
                 </ul>
             </div> 
 
-
             <jsp:include page="partiComuni/sidebar.jsp" />
 
             <div id="corpo">
-                <h1>Inserisci le caratteristiche di un nuovo oggetto</h1>
+                
+                <c:if test="${param.Nome == ''}">
+                    <p class="err"><b>Non hai inserito alcun nome!</b></p>
+                </c:if>  
+                    
+                <c:if test="${param.Url == ''}">
+                    <p class="err"><b>Non hai inserito alcun url!</b></p>
+                </c:if>     
+                    
+                <c:if test="${param.Prezzo == ''}">
+                    <p class="err"><b>Non hai inserito alcun prezzo!</b></p>
+                </c:if>   
+                    
+                <c:if test="${param.Prezzo == '0'}">
+                    <p class="err"><b>Il prezzo che hai inserito non è valido!</b></p>
+                </c:if>   
+                    
+                <c:if test="${param.Pezzi == ''}">
+                    <p class="err"><b>Non hai inserito il numero di pezzi!</b></p>
+                </c:if>   
+                    
+                <c:if test="${param.Pezzi == '0'}">
+                    <p class="err"><b>Il numero di pezzi che hai inserito non è valido!</b></p>
+                </c:if> 
+                
+                <h1>Vendi un nuovo articolo</h1>
+                
+                <p>Inserisci le caratteristiche dell'articolo che vuoi mettere in vendita.</p>
 
-                <form>
+                <form id="newarticolo" action="Vendita">
 
                     <p>
 
                     <label for="Nome">Nome dell'oggetto</label>
-                    <input type="text" name="Nome" id="Nome" /> <br> <br>
+                    <input class="featarticolo" type="text" name="Nome"/> <br> <br>
 
                     </p>
                     <p>
 
                     <label for="Url">URL dell'oggetto</label>
-                    <input type="url" name ="Url" id="Url" /> <br> <br>
+                    <input class="featarticolo" type="url" name ="Url" value="http://localhost:8080/ProgettoAmm2016/objects/sells/">  <br> <br>
 
                     </p>
                     <p>
 
                     <label for="Prezzo">Prezzo dell'oggetto</label>
-                    <input type="number" name ="Prezzo" id="Prezzo" /> <br> <br>
+                    <input class="featarticolo" type="number" name ="Prezzo" value="1"/> <br> <br>
 
                     </p>
                     <p>
 
-                    <label for="Pezzo">Pezzi disponibili</label> 
-                    <input type="number" name ="Pezzi" id="Pezzo" /> <br> <br>
+                    <label for="Pezzi">Pezzi disponibili</label> 
+                    <input class="featarticolo" type="number" name ="Pezzi" value="1"/> <br> <br>
 
                     </p>
                     <p>
 
                     <label for="Descrizione">Descrizione dell'oggetto</label>
-                    <textarea name="Descrizione" id="Descrizione" 
-                          cols="40"  rows="10"> Inserisci una descrizione </textarea>
+                    <textarea name="Descrizione" class="featarticolo" 
+                          cols="39"  rows="5"> Inserisci una descrizione (facoltativa)</textarea>
                     </p>
 
                     <input class="cl1" type="submit" value="Vendi" name="Vendi"> 

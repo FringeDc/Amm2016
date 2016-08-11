@@ -68,6 +68,68 @@ public class VenditoreFactory
         return null;        
     }  
     
+    public Venditore getVenditoreById(int id)
+    {
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+            // Query
+            String query = "select * from venditori where id = ?";
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Si associano i valori
+            stmt.setInt(1, id);
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+            
+             // ciclo sulle righe restituite
+            if(res.next()) 
+            {
+                Venditore current = new Venditore();
+                current.setId(res.getInt("id"));
+                current.setNickname(res.getString("nickname"));
+                current.setPassword(res.getString("password"));
+                current.setVenduti(res.getInt("venduti"));
+                current.setSoldi(res.getInt("soldi"));
+                
+                stmt.close();
+                conn.close();
+                
+                return current;
+            }   
+            stmt.close();
+            conn.close();
+        } 
+        catch (SQLException e) { }
+        
+        return null;        
+    }  
+    
+    public void updateVenditore(int new_venduti, int new_soldi, int id)
+    {
+        try 
+        {
+            // path, username, password      
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+                    // Query
+            String query1 = "update venditori set venduti = ? , soldi = ? where id = ?";
+                            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query1);
+            // Si associano i valori
+
+            stmt.setInt(1, new_venduti);
+            stmt.setInt(2, new_soldi);
+            stmt.setInt(3, id);
+            // Esecuzione query
+            stmt.executeUpdate();
+            stmt.close();
+            
+            conn.close();
+        } 
+        catch (SQLException e) { } 
+    }
+    
     public void setConnectionString(String s)
     {
 	this.connectionString = s;

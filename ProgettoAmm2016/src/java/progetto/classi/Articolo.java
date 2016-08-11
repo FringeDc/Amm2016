@@ -11,121 +11,69 @@ package progetto.classi;
  */
 public class Articolo 
 {
-    private String nome;
-    private double prezzo;
-    private int quantita;
-    private String image;
-    private String categoria;
     private int id;
-    private String venditore;
+    private String nome;
+    private int prezzo;
+    private int quantita;
+    private String urlImage;
+    private String descrizione;
+    private int venditoreId;
     
     public Articolo(){};
-    
-    public Articolo(String nome, String categoria, double prezzo, int quantita, String venditore)
-    {
-        this.nome = nome;
-        this.prezzo = prezzo;
-        this.categoria = categoria;
-        this.quantita = quantita;
-        this.venditore = venditore;
-        this.id = ArticoloFactory.getInstance().getListaArticoli().size();
-    }
 
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
-    }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    /**
-     * @return the prezzo
-     */
-    public double getPrezzo() {
-        return prezzo;
-    }
-
-    /**
-     * @param prezzo the prezzo to set
-     */
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
-    }
-
-    /**
-     * @return the quantita
-     */
-    public int getQuantita() {
-        return quantita;
-    }
-
-    /**
-     * @param quantita the quantita to set
-     */
-    public void setQuantita(int quantita) {
-        this.quantita = quantita;
-    }
-
-    /**
-     * @return the id
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the categoria
-     */
-    public String getCategoria() {
-        return categoria;
+    public String getNome() {
+        return nome;
     }
 
-    /**
-     * @param categoria the categoria to set
-     */
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    /**
-     * @return the venditore
-     */
-    public String getVenditore() {
-        return venditore;
+    public int getPrezzo() {
+        return prezzo;
     }
 
-    /**
-     * @param venditore the venditore to set
-     */
-    public void setVenditore(String venditore) {
-        this.venditore = venditore;
+    public void setPrezzo(int prezzo) {
+        this.prezzo = prezzo;
     }
 
-    /**
-     * @return the image
-     */
-    public String getImage() {
-        return image;
+    public int getQuantita() {
+        return quantita;
     }
 
-    /**
-     * @param image the image to set
-     */
-    public void setImage(String image) {
-        this.image = image;
+    public void setQuantita(int quantita) {
+        this.quantita = quantita;
+    }
+    
+    public void setVenditoreId(int venditore) {
+        this.venditoreId = venditore;
+    }
+    
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
+    public int getVenditoreId() {
+        return venditoreId;
+    }
+    
+    public String getDescrizione() {
+        return descrizione;
+    }
+    
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 }

@@ -36,7 +36,7 @@ public class ClienteFactory
             // path, username, password      
             Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
             // Query
-            String query = "select * from clienti where nickname = ? and password = ?";;
+            String query = "select * from clienti where nickname = ? and password = ?";
             // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
             // Si associano i valori
@@ -66,6 +66,30 @@ public class ClienteFactory
         catch (SQLException e) { }
         
         return null;        
+    }
+    
+    public void updateCliente(int new_acquistati, int new_soldi, int id)
+    {
+        try 
+        {
+            // path, username, password      
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+            // Query
+            String query = "update clienti set acquisti = ? , soldi = ? where id = ?";
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, new_acquistati);
+            stmt.setInt(2, new_soldi);
+            stmt.setInt(3, id);
+            // Esecuzione query
+            stmt.executeUpdate();
+            stmt.close();
+            
+            conn.close();
+        } 
+        catch (SQLException e) { } 
     }
     
     public void setConnectionString(String s)

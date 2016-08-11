@@ -7,10 +7,21 @@ package progetto.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import progetto.classi.Articolo;
+import progetto.classi.ArticoloFactory;
+import progetto.classi.Cliente;
+import progetto.classi.Venditore;
+import progetto.classi.VenditoreFactory;
 
 /**
  *
@@ -22,8 +33,18 @@ public class ArticoloServlet extends HttpServlet
             throws ServletException, IOException 
     {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(true);
         
+        int articoloId = Integer.parseInt(request.getParameter("articoloId"));
         
+        Articolo current = ArticoloFactory.getInstance().getArticoloById(articoloId);
+        
+        Venditore articoloVend = VenditoreFactory.getInstance().getVenditoreById(current.getVenditoreId());
+        
+        session.setAttribute("articolo", current);
+        session.setAttribute("articoloVend", articoloVend);
+        
+        request.getRequestDispatcher("articolo.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

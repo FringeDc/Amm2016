@@ -5,6 +5,11 @@
  */
 package progetto.classi;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +19,7 @@ import java.util.ArrayList;
 public class ArticoloFactory 
 {
     private static ArticoloFactory singleton;
+    String connectionString;
     
     public static ArticoloFactory getInstance() 
     {
@@ -25,79 +31,208 @@ public class ArticoloFactory
     
     private ArrayList<Articolo> articoliList = new ArrayList<Articolo>();
     
-    private ArticoloFactory() 
-    {
-        Articolo articolo_1 = new Articolo();
-        articolo_1.setNome("Fungo");
-        articolo_1.setPrezzo(9.99);
-        articolo_1.setQuantita(3);
-        articoliList.add(articolo_1);
-        
-        Articolo articolo_2 = new Articolo();
-        articolo_2.setNome("Fungo Gigante");
-        articolo_2.setPrezzo(8.99);
-        articolo_2.setQuantita(1);
-        articoliList.add(articolo_2);
-        
-        Articolo articolo_3 = new Articolo();
-        articolo_3.setNome("Fungo Coin");
-        articolo_3.setPrezzo(11.99);
-        articolo_3.setQuantita(3);
-        articoliList.add(articolo_3);
-        
-        Articolo articolo_4 = new Articolo();
-        articolo_4.setNome("Fungo 1UP");
-        articolo_4.setPrezzo(9.99);
-        articolo_4.setQuantita(10);
-        articoliList.add(articolo_4);
-        
-        Articolo articolo_5 = new Articolo();
-        articolo_5.setNome("Fungo Ape");
-        articolo_5.setPrezzo(19.99);
-        articolo_5.setQuantita(5);
-        articoliList.add(articolo_5);        
-    }
+    private ArticoloFactory() { }
     
     public ArrayList<Articolo> getListaArticoli()
     {
-        return articoliList;
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+            // Query
+            String query = "select id, nome, prezzo, quantita, url from articoli";
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+            
+            ArrayList<Articolo> listaArticoli = new ArrayList<>();
+            
+            // ciclo sulle righe restituite
+            while(res.next()) 
+            {
+                Articolo current = new Articolo();
+                current.setId(res.getInt("id"));
+                current.setNome(res.getString("nome"));
+                current.setPrezzo(res.getInt("prezzo"));
+                current.setQuantita(res.getInt("quantita"));
+                current.setUrlImage(res.getString("url"));
+                listaArticoli.add(current);
+            }
+            
+            stmt.close();
+            conn.close();
+            
+            return listaArticoli;
+        } 
+        catch (SQLException e) 
+        { }
+        
+        return null;
+    }
+    
+    public ArrayList<Articolo> getListaArticoli(String text)
+    {
+        ArrayList<Articolo> listaArticoli = new ArrayList<>();
+        
+        try 
+        {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+            // Query
+            String query = "select id, nome, prezzo, quantita, url, descrizione from articoli" +
+                        "where nome LIKE ? OR descrizione LIKE ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Esecuzione query
+            text = "%"+text+"%";
+            stmt.setString(1, text);
+            stmt.setString(2, text);
+            ResultSet res = stmt.executeQuery();
+            
+            // ciclo sulle righe restituite
+            while(res.next()) 
+            {
+                Articolo current = new Articolo();
+                current.setId(res.getInt("id"));
+                current.setNome(res.getString("nome"));
+                current.setPrezzo(res.getInt("prezzo"));
+                current.setQuantita(res.getInt("quantita"));
+                current.setUrlImage(res.getString("url"));
+                current.setDescrizione(res.getString("descrizione"));
+                listaArticoli.add(current);
+            }
+            
+            stmt.close();
+            conn.close();
+        } 
+        catch (SQLException e) 
+        { }
+        
+        return listaArticoli;
     }
     
     public Articolo getArticoloById(int id)
     {
-        for(Articolo a : articoliList)
+        try 
         {
-            if(a.getId() == id)
-                return a;
-        }
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+            // Query
+            String query = "select * from articoli where id = ?";
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Si associano i valori
+            stmt.setInt(1, id);
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+            
+            Articolo current = new Articolo();
+            
+            // ciclo sulle righe restituite
+            if(res.next()) 
+            {
+                current.setId(res.getInt("id"));
+                current.setNome(res.getString("nome"));
+                current.setPrezzo(res.getInt("prezzo"));
+                current.setQuantita(res.getInt("quantita"));
+                current.setUrlImage(res.getString("url"));
+                current.setDescrizione(res.getString("descrizione"));
+                current.setVenditoreId(res.getInt("venditoreid"));
+            }
+            
+            stmt.close();
+            conn.close();
+            
+            return current;
+        } 
+        catch (SQLException e) 
+        { }
+        
         return null;
-    } 
+    }
+       
+    public void updateArticolo(int new_quantita, int id)
+    {        
+        try 
+        {
+            // path, username, password      
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+            // Query
+            String query = "update articoli set quantita = ? where id = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Si associano i valori
+            stmt.setInt(1, new_quantita);
+            stmt.setInt(2, id);
+
+            // Esecuzione query
+            stmt.executeUpdate();
+            stmt.close();
+            
+            conn.close();
+            
+        } 
+        catch (SQLException e) { } 
+    }
     
-    public Articolo getArticoloByName(String name)
+    public void deleteArticolo(int id)
     {
-        for(Articolo a : articoliList)
+        try 
         {
-            if(a.getNome().equals(name))
-                return a;
-        }
-        return null;
-    } 
+            // path, username, password      
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+                    // Query
+            String query = "delete from articoli where id = ?";
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Si associano i valori
+            stmt.setInt(1, id);
+            // Esecuzione query
+            stmt.executeUpdate();
+            stmt.close();
+        } 
+        catch (SQLException e) { } 
+    }
     
-    public ArrayList<Articolo> getArticoloByCategoria(String categoria)
+    public void addArticolo(Articolo a)
     {
-        ArrayList<Articolo> cernita = new ArrayList<Articolo>();
-        
-        for(Articolo a : articoliList)
+        try 
         {
-            if(a.getCategoria().equals(categoria))
-                cernita.add(a);
-        }
-        
-        if(!cernita.isEmpty())
-        {
-            return cernita;
-        }
-        
-        return null;
-    } 
+            // path, username, password      
+            Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
+                    // Query
+            String query = "insert into articoli values (default, ?, ?, ?, ?, ?, ?)";
+          
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, a.getNome());
+            stmt.setInt(2, a.getPrezzo());
+            stmt.setInt(3, a.getQuantita());
+            stmt.setString(4, a.getUrlImage());
+            stmt.setString(5, a.getDescrizione());
+            stmt.setInt(6, a.getVenditoreId());
+            
+            // Esecuzione query
+            stmt.executeUpdate();
+            stmt.close();
+        } 
+        catch (SQLException e) { }
+    }
+    
+    
+    public void setConnectionString(String s)
+    {
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString()
+    {
+            return this.connectionString;
+    }
 }

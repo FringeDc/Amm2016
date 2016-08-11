@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import progetto.classi.ArticoloFactory;
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"},  loadOnStartup = 0)
 
@@ -36,26 +37,26 @@ public class Login extends HttpServlet
        
         VenditoreFactory.getInstance().setConnectionString(dbConnection);
         ClienteFactory.getInstance().setConnectionString(dbConnection);
+        ArticoloFactory.getInstance().setConnectionString(dbConnection);
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException 
     {
         HttpSession session = request.getSession(true);
-       
-        try
-        {           
-            if(session.getAttribute("clienteLoggedIn").equals(true))
-            {
-                request.getRequestDispatcher("cliente.jsp").forward(request, response);     
-                return;
-            }
-            if(session.getAttribute("venditoreLoggedIn").equals(true))
-            {
-                request.getRequestDispatcher("venditore.jsp").forward(request, response);
-                return;
-            }
-        } catch (NullPointerException e) {}
+        
+        session.setAttribute("arrayarticoli", ArticoloFactory.getInstance().getListaArticoli());
+        
+        if(session.getAttribute("clienteLoggedIn").equals(true))
+        {
+            request.getRequestDispatcher("cliente.jsp").forward(request, response);     
+            return;
+        }
+        if(session.getAttribute("venditoreLoggedIn").equals(true))
+        {
+            request.getRequestDispatcher("venditore.jsp").forward(request, response);
+            return;
+        }
         
         if(request.getParameter("Submit") != null)
         {        

@@ -81,11 +81,6 @@ a:hover
     text-decoration: none;
 }
 
-/*table 
-{
-    width: 85%;
-}*/
-
 th, tr 
 {
     height: 50px;
@@ -114,16 +109,57 @@ th
     color: white;
 }
 
-
-
-#Nome, #Url, #Descrizione, #Prezzo, #Pezzo
+#newarticolo
 {
-    width: 180px;
+    margin-left: 5%;
+    padding-left: 2%;
+    width: 90%;
 }
 
-form  
+#newarticolo p
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#newarticolo .featarticolo
+{
+    width: 85%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#descarticolo 
+{ 
+    width: 50%;
+    margin-left: 5%;
+    padding: 10px;
+    background: rgba(128, 64, 0, .3);
+    border-radius: 7px;
+    border-style: solid;
+    border-color: white;
+}
+
+#descarticolo img
+{ 
+    float: right;
+}
+
+#descarticolo .cl3
+{ 
+    width: 75px;
+}
+
+#descarticolo .cl1
+{ 
+    float: right;
+    margin-top: -40px;
+}
+
+form
 { 
     display: table;  
+    margin-left: 5%;
     margin-right: 5%;
     padding: 10px;
     background: rgba(128, 64, 0, .3);
@@ -132,7 +168,27 @@ form
     border-color: white;
 }
 
-#loginform p    
+#form_acquista
+{
+    width: 50%;
+}
+
+#form_acquista div
+{
+    display: table;
+}
+
+#form_acquista div label, #form_acquista div input
+{
+    width: 130px;
+}
+
+#form_acquista p
+{
+    float: right;
+}
+
+#loginform p, #acquistaform p 
 { 
     display: table-row;
 }
@@ -148,9 +204,8 @@ form
     width: 160px;
     padding-bottom: 0px;
     height: 130px;
-    margin: 5px;
-    
-    background: rgba(247, 255, 197, .35);
+    margin: 4px;
+    background: rgba(255, 230, 175, 0.35);
     border: none;
 }
 
@@ -176,10 +231,10 @@ form
     float: right;
     padding-bottom: 0px;
     padding-top:10px;
-    margin: 5px;
-    background: rgba(247, 255, 197, .35);
-    border: none;
+    margin: 4px;
+    background: rgba(255, 230, 175, 0.35);
     border-radius: 7px;
+    border: none;
 }
 
 #headlogoutform p
@@ -352,7 +407,8 @@ input.cl1
     width: 150px;
     padding-left: 7%;
     padding-right: 10px;
-    list-style-type: none; 
+    list-style-type: none;
+    margin-top: 30px;
 }
 
 #corpo, #denied, #failedlog
@@ -382,8 +438,8 @@ input.cl1
     margin-top: 100px;
     height: 96px;    
     align-content: center;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 0px;
+    margin-right: 0px;
     border-radius: 7px;
     border-width: 3px;
     border-style: solid;
@@ -428,4 +484,15 @@ input.cl1
     background-repeat: no-repeat;
     background-position: bottom right;
     padding: 5px;
+}
+
+.err
+{
+    text-align: right;
+}
+
+#filtrocliente
+{
+    margin-right: 0px;
+    margin-left: 55%;
 }

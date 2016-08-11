@@ -17,6 +17,9 @@
         <meta name="description" content="Milestone1">
         <meta name="author" content="Luca Stochino">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        
+        <script type="text/javascript" src="js/filtrocliente.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     </head>
     
     <body>
@@ -33,18 +36,20 @@
                 </ul>
             </div> 
 
-            <jsp:include page="partiComuni/sidebar.jsp" />
-            
-            <div id="corpo">
-
-                <h1>Oggetti in vendita</h1>
-                
+            <jsp:include page="partiComuni/sidebar.jsp" />    
                 
             <div id="corpo">
 
                 <h1>Oggetti in vendita</h1>
+                
+                <form id="filtrocliente" action="javascript:void(0);" onkeyup="stampa(event)">
+                    <label for="Filtra">Ricerca: </label>
+                    <input type="text" name="Filtra" id="textfiltro"/>
+                </form>
+        
+                <p id="stampa"></p>
 
-                <table>           
+                <table id="tabella_oggetti">           
                     <tr>
                         <th>Nome dell'oggetto</th>
                         <th>Foto descrittiva</th>
@@ -52,62 +57,38 @@
                         <th>Prezzo</th>
                         <th>Link</th>
                     </tr>
-                    <tr>
-                        <td>Fungo</td>
-                        <td><img src="objects/fungo1.png"
-                     alt ='fungo normale'
-                     title = "fungo1"
-                     width = "50" height= "50" >
-                    </td>
-                        <td>3 pz.</td>
-                        <td>9.99 €</td>
-                        <td> <a href='cliente.html'> Link all'articolo </a></td>
-                    </tr>
-                    <tr>
-                        <td>Fungo Gigante</td>
-                        <td><img src="objects/fungo2.png"
-                     alt ='fungo gigante'
-                     title = "fungo2"
-                     width = "50" height= "50" >
-                    </td>
-                        <td>1 pz.</td>
-                        <td>8.99 €</td>
-                        <td> <a href='cliente.html'> Link all'articolo </a></td>
-                    </tr>
-                    <tr>
-                        <td>Fungo Coin</td>
-                        <td><img src="objects/fungo3.png"
-                     alt ='fungo coin'
-                     title = "fungo3"
-                     width = "50" height= "50" >
-                    </td>
-                        <td>3 pz.</td>
-                        <td>11.99 €</td>
-                        <td> <a href='cliente.html'> Link all'articolo </a></td>
-                    </tr>
-                    <tr>
-                        <td>Fungo 1UP</td>
-                        <td><img src="objects/fungo4.png"
-                     alt ='fungo unoap'
-                     title = "fungo4"
-                     width = "50" height= "50" >
-                    </td>
-                        <td>10 pz.</td>
-                        <td>9.99 €</td>
-                        <td> <a href='cliente.html'> Link all'articolo </a></td>
-                    </tr>
-                    <tr>
-                        <td>Fungo Ape</td>
-                        <td><img src="objects/fungo5.png"
-                     alt ='fungo ape'
-                     title = "fungo5"
-                     width = "50" height= "50" >
-                    </td>
-                        <td>5 pz.</td>
-                        <td>19.99 €</td>
-                        <td> <a href='cliente.html'> Link all'articolo </a></td>
-                    </tr>
-                </table>            
+                    
+                    <c:forEach var="articolo" items="${arrayarticoli}">
+                        <tr>
+                            <td><b>${articolo.nome}</b></td>
+                            <td><img src="${articolo.urlImage}" width="50" height="50" ></td>
+                            
+                            <c:choose>
+                                <c:when test="${articolo.quantita <= 1}">
+                                    <td>${articolo.quantita} pezzo</td>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <td>${articolo.quantita} pezzi</td>  
+                                </c:otherwise>
+                            </c:choose>
+                              
+                            <c:choose>
+                                <c:when test="${articolo.prezzo <= 1}">
+                                    <td>${articolo.prezzo} coin</td>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <td>${articolo.prezzo} coins</td>  
+                                </c:otherwise>
+                            </c:choose>
+                                
+                            <td> <a href='ArticoloServlet?articoloId=${articolo.id}'> Link all'articolo </a></td>
+                        </tr>
+                    </c:forEach>  
+                    
+                </table> 
+                
             </div>
 
             <br><br>

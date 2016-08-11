@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import progetto.classi.ArticoloFactory;
 
 /**
  *
@@ -34,21 +35,18 @@ public class ClienteServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(true);
                   
-        if(session.getAttribute("loggedIn").equals(false)
-                || session.getAttribute("clienteLoggedIn").equals(false))
+        if(session.getAttribute("loggedIn").equals(false))
         {
-            request.getRequestDispatcher("denied.jsp").forward(request, response);     
-            return;
+            request.getRequestDispatcher("denied.jsp").forward(request, response);  
         }
         else
         {
             if(session.getAttribute("clienteLoggedIn").equals(true))
             {
                 request.getRequestDispatcher("cliente.jsp").forward(request, response);
-                return;
             }
         }
-        request.getRequestDispatcher("cliente.jsp").forward(request, response);
+        request.getRequestDispatcher("denied.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
