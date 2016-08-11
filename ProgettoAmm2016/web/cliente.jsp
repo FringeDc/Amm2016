@@ -32,7 +32,16 @@
                     <li><a href="descrizione.jsp">Home</a></li>
                     <li><p class="current">Cliente</p></li>
                     <li><p>Venditore</p></li>
-                    <li><a href="Login">Login</a></li>
+                    
+                    <c:choose>
+                        <c:when test="${loggedIn}">
+                            <li><a href="Home">Logout</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="Login">Login</a></li>
+                        </c:otherwise>
+                    </c:choose>  
                 </ul>
             </div> 
 
@@ -49,43 +58,49 @@
         
                 <p id="stampa"></p>
 
-                <table id="tabella_oggetti">           
-                    <tr>
-                        <th>Nome dell'oggetto</th>
-                        <th>Foto descrittiva</th>
-                        <th>Pezzi disponibili</th>
-                        <th>Prezzo</th>
-                        <th>Link</th>
-                    </tr>
+                <table id="tabella_oggetti"> 
                     
-                    <c:forEach var="articolo" items="${arrayarticoli}">
+                    <thead>
                         <tr>
-                            <td><b>${articolo.nome}</b></td>
-                            <td><img src="${articolo.urlImage}" width="50" height="50" ></td>
-                            
-                            <c:choose>
-                                <c:when test="${articolo.quantita <= 1}">
-                                    <td>${articolo.quantita} pezzo</td>
-                                </c:when>
-
-                                <c:otherwise>
-                                    <td>${articolo.quantita} pezzi</td>  
-                                </c:otherwise>
-                            </c:choose>
-                              
-                            <c:choose>
-                                <c:when test="${articolo.prezzo <= 1}">
-                                    <td>${articolo.prezzo} coin</td>
-                                </c:when>
-
-                                <c:otherwise>
-                                    <td>${articolo.prezzo} coins</td>  
-                                </c:otherwise>
-                            </c:choose>
-                                
-                            <td> <a href='ArticoloServlet?articoloId=${articolo.id}'> Link all'articolo </a></td>
+                            <th>Nome dell'oggetto</th>
+                            <th>Foto descrittiva</th>
+                            <th>Pezzi disponibili</th>
+                            <th>Prezzo</th>
+                            <th>Link</th>
                         </tr>
-                    </c:forEach>  
+                    </thead>
+                    
+                    <tbody>
+                        <c:forEach var="articolo" items="${arrayarticoli}">
+                            <tr>
+                                <td><b>${articolo.nome}</b></td>
+                                
+                                <td><img src="${articolo.urlImage}" width="50" height="50" ></td>
+
+                                <c:choose>
+                                    <c:when test="${articolo.quantita <= 1}">
+                                        <td>${articolo.quantita} pezzo</td>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <td>${articolo.quantita} pezzi</td>  
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <c:choose>
+                                    <c:when test="${articolo.prezzo <= 1}">
+                                        <td>${articolo.prezzo} coin</td>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <td>${articolo.prezzo} coins</td>  
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <td> <a href='ArticoloServlet?articoloId=${articolo.id}'> Link all'articolo </a></td>
+                            </tr>
+                        </c:forEach>  
+                    </tbody>
                     
                 </table> 
                 

@@ -83,7 +83,7 @@ public class Login extends HttpServlet
                 }
             }
             
-            request.getRequestDispatcher("failed_login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp?failed=1").forward(request, response);
         }
         request.getRequestDispatcher("login.jsp").forward(request, response);
     } //Fine

@@ -43,7 +43,7 @@ public class FiltroAjax extends HttpServlet {
                 
                 // Esegue la ricerca
                 ArrayList<Articolo> listaArticoli = ArticoloFactory.getInstance()
-                        .getListaArticoli(request.getParameter("text"));
+                        .filtraListaArticoli(request.getParameter("text"));
                 
                 // Imposto la lista come attributo della request, come facevamo per l'HTML
                 session.setAttribute("listaArticoli", listaArticoli);

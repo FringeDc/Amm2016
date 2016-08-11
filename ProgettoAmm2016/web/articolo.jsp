@@ -29,7 +29,16 @@
                     <li><a href="descrizione.jsp">Home</a></li>
                     <li><p class="current">Cliente</p></li>
                     <li><p>Venditore</p></li>
-                    <li><a href="Login">Login</a></li>
+                    
+                    <c:choose>
+                        <c:when test="${loggedIn}">
+                            <li><a href="Home">Logout</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="Login">Login</a></li>
+                        </c:otherwise>
+                    </c:choose>  
                 </ul>
             </div> 
 

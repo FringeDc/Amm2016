@@ -13,6 +13,7 @@
         <li><a href="descrizione.jsp" name="d">Descrizione</a></li>
         <li><a href="ClienteServlet" name="c">Cliente</a></li>
         <li><a href="VenditoreServlet" name="v">Venditore</a></li>
+        <li><a href="Login" name="v">Login</a></li>
     </ul>
     
     <h2 class="icon-title">Link esterni</h2>

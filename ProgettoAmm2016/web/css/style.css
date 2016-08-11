@@ -370,6 +370,7 @@ input.cl1
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #993D00;
     padding-bottom: 20px;
+    width: 100%;
 }
 
 #menu ul li p
@@ -379,6 +380,7 @@ input.cl1
     color: rgba(113, 57, 23, 0.4);
     margin: 0px;
     padding-bottom: 20px;
+    width: 100%;
 }
 
 #menu ul li .current
@@ -495,4 +497,9 @@ input.cl1
 {
     margin-right: 0px;
     margin-left: 55%;
+}
+
+#retry
+{
+    float: right;
 }

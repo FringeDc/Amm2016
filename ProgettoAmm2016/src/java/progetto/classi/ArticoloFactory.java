@@ -71,17 +71,26 @@ public class ArticoloFactory
         return null;
     }
     
-    public ArrayList<Articolo> getListaArticoli(String text)
+    public ArrayList<Articolo> filtraListaArticoli(String text)
     {
-        ArrayList<Articolo> listaArticoli = new ArrayList<>();
+        if(text.equals(""))
+        {
+            return getListaArticoli();
+        }
+        
+        //Metto la stringa di testo in minuscolo, così da poter effettuare una ricerca case insensitive
+        text = text.toLowerCase();
+        
+        ArrayList<Articolo> listaArticoli = new ArrayList<>();        
         
         try 
         {
             // path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
-            // Query
-            String query = "select id, nome, prezzo, quantita, url, descrizione from articoli" +
-                        "where nome LIKE ? OR descrizione LIKE ?";
+
+            //"LOWER()" serve a porre i campi trovati al minuscolo per poter effettuare una ricerca case insensitive
+            String query = "select id, nome, prezzo, quantita, url, descrizione from articoli " +
+                        "where LOWER(nome) LIKE ? OR LOWER(descrizione) LIKE ?";
             
             // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -102,6 +111,7 @@ public class ArticoloFactory
                 current.setQuantita(res.getInt("quantita"));
                 current.setUrlImage(res.getString("url"));
                 current.setDescrizione(res.getString("descrizione"));
+                
                 listaArticoli.add(current);
             }
             

@@ -52,7 +52,15 @@ and open the template in the editor.
                         </c:otherwise>
                     </c:choose>
                     
-                    <li><a href="Login">Login</a></li>
+                    <c:choose>
+                        <c:when test="${loggedIn}">
+                            <li><a href="Home">Logout</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="Login">Login</a></li>
+                        </c:otherwise>
+                    </c:choose>   
                 </ul>
             </div> 
             

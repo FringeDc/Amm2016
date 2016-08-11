@@ -29,7 +29,16 @@
                     <li><a href="descrizione.jsp">Home</a></li>
                     <li><p>Cliente</p></li>
                     <li><p class="current">Venditore</p></li>
-                    <li><a href="Login">Login</a></li>
+                    
+                    <c:choose>
+                        <c:when test="${loggedIn}">
+                            <li><a href="Home">Logout</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="Login">Login</a></li>
+                        </c:otherwise>
+                    </c:choose>  
                 </ul>
             </div> 
 
@@ -75,7 +84,7 @@
                     </p>
                     <p>
 
-                    <label for="Url">URL dell'oggetto</label>
+                    <label for="Url">URL immagine</label>
                     <input class="featarticolo" type="url" name ="Url" value="http://localhost:8080/ProgettoAmm2016/objects/sells/">  <br> <br>
 
                     </p>
@@ -93,9 +102,9 @@
                     </p>
                     <p>
 
-                    <label for="Descrizione">Descrizione dell'oggetto</label>
+                    <label for="Descrizione">Descrizione dell'oggetto (facoltativa)</label>
                     <textarea name="Descrizione" class="featarticolo" 
-                          cols="39"  rows="5"> Inserisci una descrizione (facoltativa)</textarea>
+                          cols="39"  rows="5"></textarea>
                     </p>
 
                     <input class="cl1" type="submit" value="Vendi" name="Vendi"> 

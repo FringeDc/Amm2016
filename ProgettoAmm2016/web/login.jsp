@@ -4,6 +4,7 @@
     Author     : Luca
 --%>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,9 +27,9 @@
             <div id="menu">
                 <ul>
                     <li><a href="descrizione.jsp">Home</a></li>
-                    <li><a href="ClienteServlet">Cliente</a></li>
-                    <li><a href="VenditoreServlet">Venditore</a></li>
-                    <li><p class="current">Login</p></li>
+                    <li><p>Cliente</p></li>
+                    <li><p>Venditore</p></li>
+                    <li><p class="current"> Login </p></li>
                 </ul>
             </div> 
 
@@ -37,6 +38,18 @@
             <div id="corpo">
 
                 <h1>Accedi</h1>
+                    
+                <c:if test="${param.failed == 1}">
+                    <img src= "drawable/retry.png"
+                        alt = "Retry"
+                        id="retry"
+                        title = "retry"
+                        width = "288" height= "168">
+                </c:if>
+                
+                <c:if test="${param.failed == 1}">
+                    <p>Username e/o password errati. Riprova.</p>
+                </c:if>
 
                 <form method="post" action="Login">
                     
