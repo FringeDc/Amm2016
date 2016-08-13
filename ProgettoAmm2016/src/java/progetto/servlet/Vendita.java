@@ -49,21 +49,25 @@ public class Vendita extends HttpServlet
             if(nome.equals(""))
             {
                 request.getRequestDispatcher("venditore.jsp").forward(request, response);
+                return;
             }
             
             if(url.equals(""))
             {
                 request.getRequestDispatcher("venditore.jsp").forward(request, response);
+                return;
             }
             
             if(prezzo.equals(""))
             {
                 request.getRequestDispatcher("venditore.jsp").forward(request, response);
+                return;
             }
             
             if(quant.equals(""))
             {
                 request.getRequestDispatcher("venditore.jsp").forward(request, response);
+                return;
             }
             
             Venditore v = (Venditore) session.getAttribute("user");
@@ -79,7 +83,7 @@ public class Vendita extends HttpServlet
             
             ArticoloFactory.getInstance().addArticolo(a);
             
-            request.getRequestDispatcher("denied.jsp").forward(request, response);
+            request.getRequestDispatcher("descrizione.jsp?venduto=1").forward(request, response);
         } 
     }
 

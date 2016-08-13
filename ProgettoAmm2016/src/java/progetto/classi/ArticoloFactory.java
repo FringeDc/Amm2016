@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -122,6 +123,25 @@ public class ArticoloFactory
         { }
         
         return listaArticoli;
+    }
+    
+    public ArrayList<Articolo> getArticoliRandom()
+    {
+        ArrayList<Articolo> listaArticoli = getListaArticoli();
+        
+        Random random = new Random();
+        
+        int miavar;
+        ArrayList<Articolo> treArticoli = new ArrayList<>();
+        
+        for(int i=0; i<5; i++)
+        {
+            miavar = random.nextInt(listaArticoli.size());
+            treArticoli.add(listaArticoli.get(miavar));
+            listaArticoli.remove(miavar);
+        }
+        
+        return treArticoli;
     }
     
     public Articolo getArticoloById(int id)

@@ -27,8 +27,8 @@
             <div id="menu">
                 <ul>
                     <li><a href="descrizione.jsp">Home</a></li>
-                    <li><p>Cliente</p></li>
-                    <li><p class="current">Venditore</p></li>
+                    <li><p>Compra</p></li>
+                    <li><p class="current">Vendi</p></li>
                     
                     <c:choose>
                         <c:when test="${loggedIn}">
@@ -45,6 +45,10 @@
             <jsp:include page="partiComuni/sidebar.jsp" />
 
             <div id="corpo">
+                
+                <h1>Vendi un nuovo articolo</h1>
+                
+                <p>Inserisci le caratteristiche dell'articolo che vuoi mettere in vendita.</p>
                 
                 <c:if test="${param.Nome == ''}">
                     <p class="err"><b>Non hai inserito alcun nome!</b></p>
@@ -69,10 +73,6 @@
                 <c:if test="${param.Pezzi == '0'}">
                     <p class="err"><b>Il numero di pezzi che hai inserito non è valido!</b></p>
                 </c:if> 
-                
-                <h1>Vendi un nuovo articolo</h1>
-                
-                <p>Inserisci le caratteristiche dell'articolo che vuoi mettere in vendita.</p>
 
                 <form id="newarticolo" action="Vendita">
 

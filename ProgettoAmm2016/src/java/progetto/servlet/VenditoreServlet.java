@@ -45,18 +45,6 @@ public class VenditoreServlet extends HttpServlet {
             } 
         }
         
-        if(request.getParameter("Vendi") != null)
-        {        
-            // Preleva i dati inviati
-            String nome = request.getParameter("Nome");
-            String url = request.getParameter("Url");
-            String prezzo = request.getParameter("Prezzo");
-            String pezzi = request.getParameter("Pezzi");
-            String descrizione = request.getParameter("Descrizione");
-            
-            request.getRequestDispatcher("venditore_ok.jsp").forward(request, response);
-        }
-        
         request.getRequestDispatcher("denied.jsp").forward(request, response);
     }
 

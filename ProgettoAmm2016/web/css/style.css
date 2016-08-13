@@ -503,3 +503,47 @@ input.cl1
 {
     float: right;
 }
+
+#showarticoli
+{
+    padding: 0px;
+    width: 100%;
+}
+
+#showarticoli li
+{
+    width: 2%;
+    display: table-cell;
+}
+
+#showarticoli li div p
+{
+    vertical-align: middle;
+    text-align: center;  
+    height: 70px;  
+}
+
+#showarticoli li div img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidelinks, .icon-title
+{
+    list-style-type: none;
+    text-align: center;
+    padding: 0px;
+}
+
+.sidelinks li
+{
+    height: 21px;
+}
+
+.sidelinks li a:hover
+{
+    font-weight: bold;
+    text-decoration: none;
+}

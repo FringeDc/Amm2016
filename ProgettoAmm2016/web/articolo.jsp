@@ -27,8 +27,8 @@
             <div id="menu">
                 <ul>
                     <li><a href="descrizione.jsp">Home</a></li>
-                    <li><p class="current">Cliente</p></li>
-                    <li><p>Venditore</p></li>
+                    <li><p class="current">Compra</p></li>
+                    <li><p>Vendi</p></li>
                     
                     <c:choose>
                         <c:when test="${loggedIn}">
@@ -50,7 +50,9 @@
             
                 <div id="descarticolo">
 
-                    <img src= "${articolo.urlImage}" alt="Immagine" width="100" height="100">
+                    <img src= "${articolo.urlImage}" 
+                         alt="Immagine" width="100" height="100"
+                         onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';">
                     
                     <h2>Prezzo</h2>
                     

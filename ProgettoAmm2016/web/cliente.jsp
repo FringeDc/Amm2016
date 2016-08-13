@@ -20,7 +20,14 @@
         
         <script type="text/javascript" src="js/filtrocliente.js"></script>
         <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        
     </head>
+            
+    <c:if test="${param.nomoney == '1'}">
+        <script> 
+            alert("Non hai abbastanza coin\nper permetterti questo acquisto!")
+        </script>
+    </c:if>
     
     <body>
         <div id="body2">
@@ -30,8 +37,8 @@
             <div id="menu">
                 <ul>
                     <li><a href="descrizione.jsp">Home</a></li>
-                    <li><p class="current">Cliente</p></li>
-                    <li><p>Venditore</p></li>
+                    <li><p class="current">Compra</p></li>
+                    <li><p>Vendi</p></li>
                     
                     <c:choose>
                         <c:when test="${loggedIn}">
@@ -45,13 +52,13 @@
                 </ul>
             </div> 
 
-            <jsp:include page="partiComuni/sidebar.jsp" />    
+            <jsp:include page="partiComuni/sidebar.jsp" /> 
                 
             <div id="corpo">
 
                 <h1>Oggetti in vendita</h1>
                 
-                <form id="filtrocliente" action="javascript:void(0);" onkeyup="stampa(event)">
+                <form id="filtrocliente" action="javascript:void(0);" onkeyup="filtra(event)">
                     <label for="Filtra">Ricerca: </label>
                     <input type="text" name="Filtra" id="textfiltro"/>
                 </form>
@@ -75,8 +82,10 @@
                             <tr>
                                 <td><b>${articolo.nome}</b></td>
                                 
-                                <td><img src="${articolo.urlImage}" width="50" height="50" ></td>
-
+                                <td><img src="${articolo.urlImage}" 
+                                         width="50" height="50" 
+                                         onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"></td>
+                                
                                 <c:choose>
                                     <c:when test="${articolo.quantita <= 1}">
                                         <td>${articolo.quantita} pezzo</td>

@@ -31,6 +31,8 @@ public class Home extends HttpServlet
         session.setAttribute("clienteLoggedIn", false);
         session.setAttribute("loggedIn", false);
         
+        session.setAttribute("articoliRandom", ArticoloFactory.getInstance().getArticoliRandom());
+        
         session.setAttribute("user", null);
         
         request.getRequestDispatcher("descrizione.jsp").forward(request, response);

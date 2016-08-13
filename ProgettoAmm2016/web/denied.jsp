@@ -33,8 +33,8 @@ and open the template in the editor.
             <div id="menu">
                 <ul>
                     <li><a href="descrizione.jsp">Home</a></li>
-                    <li><p>Cliente</p></li>
-                    <li><p>Venditore</p></li>
+                    <li><p>Compra</p></li>
+                    <li><p>Vendi</p></li>
                     
                     <c:choose>
                         <c:when test="${loggedIn}">

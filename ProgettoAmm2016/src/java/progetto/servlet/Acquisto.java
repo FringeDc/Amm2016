@@ -49,7 +49,7 @@ public class Acquisto extends HttpServlet
             
             if(clie.getSoldi() <= spesa)
             {
-                request.getRequestDispatcher("denied.jsp").forward(request, response);
+                request.getRequestDispatcher("cliente.jsp?nomoney=1").forward(request, response);
             }
             else
             {                
@@ -76,7 +76,7 @@ public class Acquisto extends HttpServlet
                 session.setAttribute("user", clie);
                 session.setAttribute("arrayarticoli", ArticoloFactory.getInstance().getListaArticoli());
                 
-                request.getRequestDispatcher("cliente.jsp").forward(request, response);
+                request.getRequestDispatcher("descrizione.jsp?acquisto=1").forward(request, response);
             }
         } 
     }

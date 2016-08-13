@@ -16,6 +16,7 @@
             <li><a class="timbro" href="http://mario.nintendo.com/"> <img border="0" alt="Super Mario" src="drawable/mario.png" width="50" height="50"></a></li>
             <li><a class="timbro" href="http://nonciclopedia.wikia.com/wiki/Padre_Maronno_–_L'uomo_a_cui_appiopparono_la_santità"> <img border="0" alt="Padre Maronno" src="drawable/maronno.png" width="50" height="50"></a></li>
             <li><a class="timbro" href="http://www.chiquita.it/"> <img border="0" alt="Chiquita" src="drawable/chiquita.png" width="50" height="50"></a></li>
+            <li><a class="timbro" href="http://www.baustelle.it/"> <img border="0" alt="Baustelle" src="drawable/baustelle.png" width="50" height="50" ></a></li>
         </ul>
     </div>
     
