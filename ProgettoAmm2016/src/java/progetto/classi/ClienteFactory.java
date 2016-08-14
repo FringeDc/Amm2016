@@ -77,19 +77,34 @@ public class ClienteFactory
             // Query
             String query = "update clienti set acquisti = ? , soldi = ? where id = ?";
             // Prepared Statement
+            conn.setAutoCommit(true);
+            
             PreparedStatement stmt = conn.prepareStatement(query);
             
             // Si associano i valori
             stmt.setInt(1, new_acquistati);
             stmt.setInt(2, new_soldi);
             stmt.setInt(3, id);
-            // Esecuzione query
-            stmt.executeUpdate();
-            stmt.close();
             
+            // Esecuzione query
+            int ctrl = stmt.executeUpdate();
+            
+            if(ctrl != 1)
+            {
+                conn.rollback();
+            }
+            else
+            {
+                conn.commit();  
+            }
+            
+            conn.setAutoCommit(true);
+             
+            stmt.close();
             conn.close();
         } 
-        catch (SQLException e) { } 
+        catch (SQLException e) 
+        { }  
     }
     
     public void setConnectionString(String s)

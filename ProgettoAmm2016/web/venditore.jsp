@@ -84,8 +84,9 @@
                     </p>
                     <p>
 
-                    <label for="Url">URL immagine</label>
-                    <input class="featarticolo" type="url" name ="Url" value="http://localhost:8080/ProgettoAmm2016/objects/sells/">  <br> <br>
+                    <label for="Url">Nome del file immagine</label>
+                    <p>(Salvare l'immagine nella cartella <i>"ProgettoAmm2016/objects/sells/"</i>)</p>
+                    <input class="featarticolo" type="text" name ="Url" value="immagine.png">  <br> <br>
 
                     </p>
                     <p>
@@ -102,7 +103,8 @@
                     </p>
                     <p>
 
-                    <label for="Descrizione">Descrizione dell'oggetto (facoltativa)</label>
+                    <label for="Descrizione">Descrizione dell'oggetto</label>
+                    <p>(facoltativa)</p>
                     <textarea name="Descrizione" class="featarticolo" 
                           cols="39"  rows="5"></textarea>
                     </p>

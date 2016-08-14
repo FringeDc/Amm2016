@@ -132,16 +132,16 @@ public class ArticoloFactory
         Random random = new Random();
         
         int miavar;
-        ArrayList<Articolo> treArticoli = new ArrayList<>();
+        ArrayList<Articolo> randomArticoli = new ArrayList<>();
         
         for(int i=0; i<5; i++)
         {
             miavar = random.nextInt(listaArticoli.size());
-            treArticoli.add(listaArticoli.get(miavar));
+            randomArticoli.add(listaArticoli.get(miavar));
             listaArticoli.remove(miavar);
         }
         
-        return treArticoli;
+        return randomArticoli;
     }
     
     public Articolo getArticoloById(int id)
@@ -193,6 +193,8 @@ public class ArticoloFactory
             // Query
             String query = "update articoli set quantita = ? where id = ?";
             
+            conn.setAutoCommit(false);
+            
             // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
             // Si associano i valori
@@ -200,13 +202,25 @@ public class ArticoloFactory
             stmt.setInt(2, id);
 
             // Esecuzione query
-            stmt.executeUpdate();
-            stmt.close();
+            int ctrl = stmt.executeUpdate();
             
+            if(ctrl != 1)
+            {
+                conn.rollback();
+            }
+            else
+            {
+                conn.commit();  
+            }
+            
+            conn.setAutoCommit(true);
+             
+            stmt.close();
             conn.close();
             
         } 
-        catch (SQLException e) { } 
+        catch (SQLException e) 
+        { } 
     }
     
     public void deleteArticolo(int id)
@@ -215,17 +229,34 @@ public class ArticoloFactory
         {
             // path, username, password      
             Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
-                    // Query
+            // Query
             String query = "delete from articoli where id = ?";
+            
+            conn.setAutoCommit(false);
             // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
             // Si associano i valori
             stmt.setInt(1, id);
             // Esecuzione query
-            stmt.executeUpdate();
+            int ctrl = stmt.executeUpdate();
+            
+            if(ctrl != 1)
+            {
+                conn.rollback();
+            }
+            else
+            {
+                conn.commit();  
+            }
+            
+            conn.setAutoCommit(true);
+             
             stmt.close();
+            conn.close();
+            
         } 
-        catch (SQLException e) { } 
+        catch (SQLException e) 
+        { }  
     }
     
     public void addArticolo(Articolo a)
@@ -237,6 +268,7 @@ public class ArticoloFactory
                     // Query
             String query = "insert into articoli values (default, ?, ?, ?, ?, ?, ?)";
           
+            conn.setAutoCommit(false);
             // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
             
@@ -249,10 +281,24 @@ public class ArticoloFactory
             stmt.setInt(6, a.getVenditoreId());
             
             // Esecuzione query
-            stmt.executeUpdate();
+            int ctrl = stmt.executeUpdate();
+            
+            if(ctrl != 1)
+            {
+                conn.rollback();
+            }
+            else
+            {
+                conn.commit();  
+            }
+            
+            conn.setAutoCommit(true);
+             
             stmt.close();
+            conn.close();
         } 
-        catch (SQLException e) { }
+        catch (SQLException e) 
+        { }  
     }
     
     

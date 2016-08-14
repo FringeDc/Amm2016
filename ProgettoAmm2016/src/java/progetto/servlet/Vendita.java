@@ -75,7 +75,7 @@ public class Vendita extends HttpServlet
             Articolo a = new Articolo();
             
             a.setNome(nome);
-            a.setUrlImage(url);
+            a.setUrlImage("objects/sells/"+url);
             a.setPrezzo(Integer.parseInt(prezzo));
             a.setQuantita(Integer.parseInt(quant));
             a.setDescrizione(descr);

@@ -113,21 +113,35 @@ public class VenditoreFactory
             // path, username, password      
             Connection conn = DriverManager.getConnection(connectionString, "fringedc", "1234");
                     // Query
-            String query1 = "update venditori set venduti = ? , soldi = ? where id = ?";
-                            // Prepared Statement
+            String query1 = "update venditori set venduti = ?, soldi = ? where id = ?";
+            
+            conn.setAutoCommit(false);
+            // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query1);
+            
             // Si associano i valori
-
             stmt.setInt(1, new_venduti);
             stmt.setInt(2, new_soldi);
             stmt.setInt(3, id);
             // Esecuzione query
-            stmt.executeUpdate();
-            stmt.close();
+            int ctrl = stmt.executeUpdate();
             
+            if(ctrl != 1)
+            {
+                conn.rollback();
+            }
+            else
+            {
+                conn.commit();  
+            }
+            
+            conn.setAutoCommit(true);
+             
+            stmt.close();
             conn.close();
         } 
-        catch (SQLException e) { } 
+        catch (SQLException e) 
+        { }  
     }
     
     public void setConnectionString(String s)
