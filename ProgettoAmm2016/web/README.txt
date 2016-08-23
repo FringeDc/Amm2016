@@ -7,7 +7,7 @@ Il progetto si propone come un sito di compravendita di oggettistica di campo vi
 
 2. Requisiti soddisfatti
 
-Il progetto è stato realizzato impiegando 
+Il progetto e' stato realizzato impiegando 
 - HTML + CSS (validati secondi W3C)
 - Java
 - MySQL
