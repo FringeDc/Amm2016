@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="keywords" content="HTML, CSS, PHP, MySQL, AMM">
-        <meta name="description" content="Milestone1">
+        <meta name="description" content="Progetto">
         <meta name="author" content="Luca Stochino">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
         
@@ -59,7 +59,7 @@
                 <h1>Oggetti in vendita</h1>
                 
                 <form id="filtrocliente" action="javascript:void(0);" onkeyup="filtra(event)">
-                    <label for="Filtra">Ricerca: </label>
+                    <label for="textfiltro">Ricerca: </label>
                     <input type="text" name="Filtra" id="textfiltro"/>
                 </form>
                 
@@ -83,7 +83,8 @@
                                 <td><b>${articolo.nome}</b></td>
                                 
                                 <td><img src="${articolo.urlImage}" 
-                                         width="50" height="50" 
+                                         width="50" height="50"
+                                         alt="Immagine articolo"
                                          onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"></td>
                                 
                                 <c:choose>

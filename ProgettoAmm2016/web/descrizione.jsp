@@ -7,12 +7,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Descrizione</title>
@@ -20,7 +14,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="keywords" content="HTML, CSS, PHP, MySQL, AMM">
-        <meta name="description" content="Milestone1">
+        <meta name="description" content="Progetto">
         <meta name="author" content="Luca Stochino">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
@@ -85,7 +79,7 @@ and open the template in the editor.
                 
                 <p>Il sito prende ispirazione dal videogioco Super Mario Bros., in quanto uno dei platform più conociuti nel mondo.<br>
                     Mario va nel Regno dei Funghi, affronta tartarughe stacanoviste e funghetti dentati, fa precipitare nella lava Bowser e salva la principessa Peach.<br><br>
-                    E secondo voi una persona normale, <b>un idraulico</b>, riuscirebbe a fare tutto questo senza nemmeno un <b>aiutino</b>?</br>
+                    E secondo voi una persona normale, <b>un idraulico</b>, riuscirebbe a fare tutto questo senza nemmeno un <b>aiutino</b>?<br>
                     Ebbene, questo sito vi offre l'opportunità di poter usufruire anche voi degli "aiutini" di cui faceva uso Mario.
                     <b>Funghi strani</b>, <b>fiori magici</b> e <b>foglie stregate</b>... ma soprattutto <b>funghi strani</b>... 
                 </p>

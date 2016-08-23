@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="keywords" content="HTML, CSS, PHP, MySQL, AMM">
-        <meta name="description" content="Milestone1">
+        <meta name="description" content="Progetto">
         <meta name="author" content="Luca Stochino">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
@@ -95,8 +95,8 @@
                     <br>
                     
                     <div>
-                    <label for="Quantita">Numero pezzi:</label>  
-                    <input class="cl3" type="number" name="Quantita" value="1" min="1" max="${articolo.quantita}"/> <br>
+                    <label for="quanti">Numero pezzi:</label>  
+                    <input class="cl3" type="number" name="Quantita" value="1" min="1" max="${articolo.quantita}" id="quanti"/> <br>
                     </div>
                     
                     <p>
@@ -107,5 +107,6 @@
             </div>
                     
             <jsp:include page="partiComuni/footer.jsp" />
+        </div>
     </body>
 </html>

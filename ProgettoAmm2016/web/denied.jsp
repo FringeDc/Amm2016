@@ -7,12 +7,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Descrizione</title>
@@ -20,7 +14,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="keywords" content="HTML, CSS, PHP, MySQL, AMM">
-        <meta name="description" content="Milestone1">
+        <meta name="description" content="Progetto">
         <meta name="author" content="Luca Stochino">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
@@ -52,7 +46,7 @@ and open the template in the editor.
 
             <div id="denied">
                 
-                </br></br></br>
+                <br><br><br>
                 
                 <img src= "drawable/busted.gif"
                         alt = "Busted"
@@ -60,7 +54,7 @@ and open the template in the editor.
                         title = "busted"
                         width = "52" height= "58">
                 
-                </br>
+                <br>
                     
                 <h1> Accesso negato </h1>
               

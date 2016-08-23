@@ -65,8 +65,7 @@
 
                     <div id="headlogoutsubdiv"> 
                         <a href="Home">
-                            <img border="0" 
-                                 alt="Logout" 
+                            <img alt="Logout" 
                                  src="drawable/logout.png" 
                                  width="24" height="29"></a>                        
                     </div>

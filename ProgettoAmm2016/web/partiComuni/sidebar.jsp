@@ -19,7 +19,6 @@
             </ul>
         </li>
 
-        <br>
         <li class="linksubR">
             <h2 class="icon-title">Link esterni</h2>
             <ul class="sidelinks">
