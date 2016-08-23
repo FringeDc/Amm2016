@@ -62,9 +62,9 @@
                     <label for="Filtra">Ricerca: </label>
                     <input type="text" name="Filtra" id="textfiltro"/>
                 </form>
-        
+                
                 <p id="stampa"></p>
-
+        
                 <table id="tabella_oggetti"> 
                     
                     <thead>
@@ -106,11 +106,10 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                <td> <a href='ArticoloServlet?articoloId=${articolo.id}'> Link all'articolo </a></td>
+                                <td> <a href='ArticoloServlet?articoloId=${articolo.id}'> Dettagli </a></td>
                             </tr>
                         </c:forEach>  
                     </tbody>
-                    
                 </table> 
                 
             </div>

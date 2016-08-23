@@ -38,7 +38,7 @@ function filtra(event)
         if(count>0)
         {
             if(count == 1)
-                document.getElementById("stampa").innerHTML = "Trovata " + count + " corrispondenza";
+                document.getElementById("stampa").innerHTML = "Trovata una sola corrispondenza";
             else
                 document.getElementById("stampa").innerHTML = "Trovate " + count + " corrispondenze";
             
@@ -113,7 +113,7 @@ function filtra(event)
                 //Link            
                 var td2 = document.createElement('TD');
                 var link = document.createElement('A');
-                link.appendChild(document.createTextNode("Link all'articolo"));
+                link.appendChild(document.createTextNode("Dettagli"));
                 td2.appendChild(link);
                 link.setAttribute("href", "ArticoloServlet?articoloId="+listaArticoli[articolo].id);
                 tr.appendChild(td2);
@@ -121,7 +121,7 @@ function filtra(event)
         }
         else
         {
-            document.getElementById("stampa").innerHTML = "Nessun oggetto corrispondente";
+            document.getElementById("stampa").innerHTML = "Nessuna corrispondenza trovata";
         }
         
         return;

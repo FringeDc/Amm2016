@@ -3,16 +3,18 @@
     Author     : Luca
 */
 
+/* Estetica */
+
 @font-face 
 {
    font-family: 'Super Mario 256';
-   src: url('../object/SuperMario256.ttf') format('truetype');;
+   src: url('../object/SuperMario256.ttf') format('truetype');
 }
 
 @font-face 
 {
    font-family: 'Tw Cen MT';
-   src: url('../object/Tw Cen MT.ttf') format('truetype');;
+   src: url('../object/Tw Cen MT.ttf') format('truetype');
 }
 
 body
@@ -309,11 +311,6 @@ input.cl1
     display: inline; 
 }
 
-#logo_titolo
-{
-    position: absolute;
-}
-
 #header
 {
     height: 150px;
@@ -371,6 +368,7 @@ input.cl1
     -webkit-text-stroke-color: #993D00;
     padding-bottom: 20px;
     width: 100%;
+    text-shadow: 2px 2px 2px rgb(90, 40, 0);
 }
 
 #menu ul li p
@@ -390,6 +388,7 @@ input.cl1
     color: rgb(191,15,23);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(35, 0, 0);
+    text-shadow: 2px 2px 2px rgb(90, 40, 0);
     
     background-image: url("../drawable/current.png");
     background-position: bottom center;
@@ -400,7 +399,6 @@ input.cl1
 {
     align-content: center;
     text-align: center;
-    height: 200px;
 }
 
 #sidebar
@@ -411,6 +409,16 @@ input.cl1
     padding-right: 10px;
     list-style-type: none;
     margin-top: 30px;
+}
+
+#linkpar
+{
+    list-style-type: none;
+}
+
+#linkpar li h2
+{
+    margin-left: -20px;
 }
 
 #corpo, #denied, #failedlog
@@ -457,6 +465,7 @@ input.cl1
 {
     display: block;
     margin-right: 10px;
+    padding-left: 0px;
 }
 
 .foot ul li
@@ -495,8 +504,8 @@ input.cl1
 
 #filtrocliente
 {
-    margin-right: 0px;
-    margin-left: 55%;
+    margin-bottom: 20px;
+    padding-top: 5px;
 }
 
 #retry
@@ -542,8 +551,293 @@ input.cl1
     height: 21px;
 }
 
+
 .sidelinks li a:hover
 {
     font-weight: bold;
     text-decoration: none;
+}
+
+/* ----------------------------- Display > 1024 pixel ----------------------------- */
+
+@media only screen and (min-width: 1024px)
+{
+    #logo_titolo
+    {
+        position: absolute;
+        margin-left:10%;
+    }    
+}
+
+/* ----------------------- 750 pixel > Display > 1024 pixel ----------------------- */
+
+@media only screen and (min-width: 750px) and (max-width: 1024px)
+{
+    /*Header*/
+    
+    #logo_titolo
+    {
+        display: none;
+    }
+    
+    
+    #img_titolo
+    {
+        content:url("http://localhost:8080/ProgettoAmm2016/drawable/headimg_l.png");
+        width: 401px;
+        height: auto;
+    }
+    
+    /*Sidebar*/
+    
+    #sidebar
+    {
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    #linkpar
+    {
+        display: inline-flex;
+        width: 100%;
+    }
+    
+    .linksubL
+    {
+        margin-left: 5%;
+        display: block;
+    }
+    
+    .linksubR
+    {
+        margin-left: 15%;
+        display: block;
+    }
+    
+    /* form e divs */
+
+    #corpo, #denied, #failedlog
+    {
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-top: 30px;
+    }
+}
+
+/* ----------------------- 480 pixel > Display > 750 pixel ----------------------- */
+
+@media only screen and (min-width: 480px) and (max-width: 750px)
+{
+    #logo_titolo
+    {
+        content:url("http://localhost:8080/ProgettoAmm2016/drawable/little_logo.png");
+        width: 180px;
+        height: auto;
+        vertical-align: middle;
+    }
+    
+    #img_titolo
+    {
+        display: none;
+    }
+    
+    #header
+    {
+        background:url("http://localhost:8080/ProgettoAmm2016/drawable/headimg_m.png");
+    }
+    
+    /* Retry login image */
+    
+    #retry
+    {
+        display: none;
+    }
+    
+    /*Sidebar*/
+    
+    #sidebar
+    {
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    #linkpar
+    {
+        display: inline-flex;
+        width: 100%;
+    }
+    
+    .linksubL
+    {
+        margin-left: 10%;
+        display: block;
+    }
+    
+    .linksubR
+    {
+        margin-left: 15%;
+        display: block;
+    }
+    
+    /* form e divs */
+
+    #corpo, #denied, #failedlog
+    {
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-top: 30px;
+    }
+    
+    /* Show articoli */
+    
+    .esempio_sacrif
+    {
+        display: none;
+        width: 0px;
+        width: 0px;
+    } 
+    
+    /* Dettagli Articolo e Login */
+    
+    #descarticolo, #form_acquista, #loginform
+    { 
+        width: 300px;
+    }
+    
+    #menu ul li p
+    {
+        font-family: 'Tw Cen MT', Verdana, sans-serif;
+        -webkit-text-stroke-width: 1px;
+        font-weight: bold;
+    }
+    
+    #menu ul li a
+    {
+        font-family: 'Tw Cen MT', Verdana, sans-serif;
+        -webkit-text-stroke-color: #FFA600;
+        -webkit-text-stroke-width: 0.5px;
+        font-weight: bold;
+        text-shadow: 2px 2px 2px black;
+    }
+    
+    #menu ul li .current
+    {
+        font-family: 'Tw Cen MT', Verdana, sans-serif;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: rgb(191, 15, 23);
+        color: rgb(191, 15, 23);
+        font-weight: bold;
+        text-shadow: 2px 2px 2px black;
+    }
+}
+
+/* ----------------------------- Display < 484 pixel ----------------------------- */
+
+@media only screen and (max-width: 480px)
+{
+    /* Header */
+    
+    #headloginform, #headlogoutform, #img_titolo
+    {
+        display: none;
+    }
+    
+    #logo_titolo
+    {
+        width: 250px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    
+    /*Sidebar*/
+    
+    #sidebar
+    {
+        width: 100%;
+    }
+
+    #sidebar > *
+    {
+        width: 150px;
+        margin-left: 15%;
+        margin-bottom:50px;
+    }
+    
+
+    #corpo, #denied, #failedlog
+    {
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-top: 30px;
+    }
+    
+    
+    /* Retry login image */
+    
+    #retry
+    {
+        display: none;
+    }
+    
+    
+    /* Show articoli */
+    
+    .esempio_sacrif
+    {
+        display: none;
+        width: 0px;
+        width: 0px;
+    } 
+    
+    /* form e divs */
+    
+    #corpo, #denied, #failedlog
+    {
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-top: 30px;
+    }
+    
+    /* Dettagli Articolo e Login*/
+    
+    #descarticolo, #form_acquista, #loginform
+    { 
+        width: 300px;
+    }
+    
+    #menu ul li p
+    {
+        font-family: 'Tw Cen MT', Verdana, sans-serif;
+        -webkit-text-stroke-width: 1px;
+        font-weight: bold;
+    }
+    
+    #menu ul li a
+    {
+        font-family: 'Tw Cen MT', Verdana, sans-serif;
+        -webkit-text-stroke-color: #FFA600;
+        -webkit-text-stroke-width: 0.5px;
+        font-weight: bold;
+        text-shadow: 2px 2px 2px black;
+    }
+    
+    #menu ul li .current
+    {
+        font-family: 'Tw Cen MT', Verdana, sans-serif;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: rgb(191, 15, 23);
+        color: rgb(191, 15, 23);
+        font-weight: bold;
+        text-shadow: 2px 2px 2px black;
+    }
+}
+
+@media only screen and (max-width: 418px)
+{
+    body
+    {
+        width: 400px;
+    }
 }

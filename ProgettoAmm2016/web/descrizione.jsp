@@ -105,9 +105,9 @@ and open the template in the editor.
                 
                 <ul id="showarticoli">            
                     <li> <div> <img alt="Articolo0" src=${articoliRandom.get(0).getUrlImage()} width="50" height="50" onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"> <p><b>${articoliRandom.get(0).getNome()}</b></p> </div> </li>
-                    <li> <div> <img alt="Articolo1" src=${articoliRandom.get(1).getUrlImage()} width="50" height="50" onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"> <p><b>${articoliRandom.get(1).getNome()}</b></p> </div> </li>
+                    <li> <div class="esempio_sacrif"> <img alt="Articolo1" src=${articoliRandom.get(1).getUrlImage()} width="50" height="50" onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"> <p><b>${articoliRandom.get(1).getNome()}</b></p> </div> </li>
                     <li> <div> <img alt="Articolo2" src=${articoliRandom.get(2).getUrlImage()} width="50" height="50" onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"> <p><b>${articoliRandom.get(2).getNome()}</b></p> </div> </li>
-                    <li> <div> <img alt="Articolo3" src=${articoliRandom.get(3).getUrlImage()} width="50" height="50" onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"> <p><b>${articoliRandom.get(3).getNome()}</b></p> </div> </li>
+                    <li> <div class="esempio_sacrif"> <img alt="Articolo3" src=${articoliRandom.get(3).getUrlImage()} width="50" height="50" onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"> <p><b>${articoliRandom.get(3).getNome()}</b></p> </div> </li>
                     <li> <div> <img alt="Articolo4" src=${articoliRandom.get(4).getUrlImage()} width="50" height="50" onerror="this.onerror=null;this.src='objects/sells/image_not_found.png';"> <p><b>${articoliRandom.get(4).getNome()}</b></p> </div> </li>
                 </ul>
 
